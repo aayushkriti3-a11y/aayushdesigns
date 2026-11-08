@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aayush Kriti, portfolio</title>
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Kalam:wght@400;700&amp;family=Shrikhand&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2B1E16}a:hover{color:#3E6B2F}
+.navlink{text-decoration:none;position:relative;padding:6px 0}
+.navlink:hover{color:#C0391B}
+.btn{transition:transform .15s ease-out,background-color .15s ease-out}
+.btn:hover{transform:translateY(-1px)}
+.btn-solid:hover{background:#C0391B !important;color:#FFFAF2 !important}
+.btn-ghost:hover{background:#2B1E16 !important;color:#FFFAF2 !important}
+.card{transition:transform .25s cubic-bezier(.2,0,0,1),box-shadow .25s cubic-bezier(.2,0,0,1)}
+.card:hover{transform:translateY(-4px);box-shadow:0 1px 0 #DCCDB6,0 18px 40px rgba(43,30,22,.10)}
+.card:hover .cover-art{transform:scale(1.03) rotate(-0.5deg)}
+.cover-art{transition:transform .4s cubic-bezier(.2,0,0,1)}
+.pola{transition:transform .25s cubic-bezier(.2,0,0,1)}
+.pola:hover{transform:rotate(0deg) translateY(-6px) !important}
+.side:hover .side-img{transform:translateY(-3px)}
+.side-img{transition:transform .2s ease-out}
+.trail{transition:stroke-dashoffset .35s ease-out}
+.pan{transition:top .45s cubic-bezier(.2,0,0,1),left .45s cubic-bezier(.2,0,0,1)}
+.step{transition:color .3s ease-out}
+.qlabel{transition:opacity .3s ease-out}
+.dot{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3px}
+.burger{display:none}.mobilemenu{display:none}
+.menustrip{display:grid;grid-template-columns:1.3fr repeat(5,minmax(0,1fr))}.mhead{border-right:1.5px dashed #CDB9A5}.course+.course{border-left:1px dotted #CDB9A5}
+@media (max-width: 900px){.menustrip{grid-template-columns:repeat(2,minmax(0,1fr))}.mhead{grid-column:1 / -1;border-right:0;border-bottom:1.5px dashed #CDB9A5}.course{border-left:0 !important;border-top:1px dotted #CDB9A5}.course:nth-child(2),.course:nth-child(3){border-top:0}.course:nth-child(odd){border-left:1px dotted #CDB9A5 !important}.course:last-child{grid-column:1 / -1;border-left:0 !important}}
+.inpan{background:#2B1E16 radial-gradient(circle at 50% 0, #33241B 0, #2B1E16 60%) !important}
+.inpan #about{color:#F6EFE3}
+.inpan #about [style*="color: #6B5242"]{color:#CDB9A5 !important}
+.inpan #about [style*="color: #C0391B"]{color:#EDA92A !important}
+.inpan #about ol{border-top-color:#5A463A !important}
+.inpan #about li > span[aria-hidden]{border-color:#F6EFE3 !important}
+.inpan footer{border-top-color:#5A463A !important;color:#CDB9A5 !important}
+.inpan .billcard{color:#2B1E16;border-color:#FFFAF2 !important;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.tool .toolcard{transform-origin:50% -14px;transition:transform .35s cubic-bezier(.2,0,0,1),border-color .2s ease-out}
+.tool:hover .toolcard{transform:rotate(-4deg);border-color:#2B1E16}
+.tool:nth-child(even):hover .toolcard{transform:rotate(4deg)}
+@media (prefers-reduced-motion: reduce){.tool .toolcard{transition:none}.tool:hover .toolcard,.tool:nth-child(even):hover .toolcard{transform:none}}
+@media (max-width: 640px){#tools{padding-bottom:72px !important;gap:28px !important}.toolgrid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:22px 12px !important}}
+.polatrack{--g:40px;gap:var(--g);animation:polaroll 48s linear infinite}
+.polas:hover .polatrack,.polas:focus-within .polatrack{animation-play-state:paused}
+@keyframes polaroll{from{transform:translateX(0)}to{transform:translateX(calc(-50% - var(--g) / 2))}}
+@media (prefers-reduced-motion: reduce){.polatrack{animation:none}.polas{overflow-x:auto !important}}
+#tools{scroll-margin-top:104px}
+.course{transition:background-color .2s ease-out}.course:hover{background:#F6EFE3}.course:hover .cname{color:#C0391B}
+@media (max-width: 760px){.pathcol{display:none !important}.navlinks{display:none !important}.burger{display:flex !important}.mobilemenu{display:flex !important}.cookgap{gap:0 !important}}
+@media (max-width: 640px){
+#work{padding-top:64px !important;padding-bottom:72px !important;gap:32px !important}
+#cook{padding-top:64px !important;padding-bottom:56px !important;gap:28px !important}
+.stepli{min-height:0 !important;padding-bottom:28px}
+.zoomsec{height:1500px !important}
+#kitchen{padding-top:56px !important;padding-bottom:80px !important;gap:40px !important}
+.polatrack{--g:20px}
+.polas .pola{width:176px !important;padding:8px 8px 10px !important}
+.polas .pola figcaption{font-size:14px !important;margin-top:6px !important}
+#about{padding-top:72px !important;padding-bottom:64px !important;gap:36px !important}
+#about ol{gap:28px !important}
+#contact{padding-bottom:64px !important}
+.billcard{padding:26px 20px !important;gap:32px !important;border-radius:22px !important}
+.mailpill{gap:10px !important;flex-wrap:wrap;border-radius:18px !important;padding:8px 8px 8px 16px !important}
+.mailpill a{font-size:15px !important;overflow-wrap:normal !important;white-space:nowrap}
+}
+@media (prefers-reduced-motion: reduce){.btn,.card,.cover-art,.pola,.side-img,.trail,.pan,.step,.qlabel{transition:none}.dot{animation:none}.card:hover,.pola:hover,.btn:hover{transform:none !important}.card:hover .cover-art{transform:none}}
+.logo{position:relative}
+.logo,.logo:hover{color:#2B1E16}
+.logo .steam{transform-box:fill-box;transform-origin:50% 100%;animation:lgsteam 2.4s ease-in-out infinite}
+.logo .s2{animation-delay:.5s}.logo .s3{animation-delay:1s}
+@keyframes lgsteam{0%{opacity:0;transform:translateY(3px) scaleY(.6)}30%{opacity:1}70%{opacity:.85}100%{opacity:0;transform:translateY(-5px) scaleY(1.1)}}
+.logo .panbody{transform-box:fill-box;transform-origin:20% 100%;animation:lgsizzle 3.2s ease-in-out infinite}
+@keyframes lgsizzle{0%,80%,100%{transform:rotate(0)}84%{transform:rotate(-4deg)}88%{transform:rotate(3deg)}92%{transform:rotate(-2deg)}96%{transform:rotate(1deg)}}
+.logo .pop{opacity:0;animation:lgpopl 1.8s ease-out infinite}
+.logo .pr{animation-name:lgpopr;animation-delay:.9s}
+@keyframes lgpopl{0%{opacity:0;transform:translate(0,0)}20%{opacity:1}100%{opacity:0;transform:translate(-4px,-9px)}}
+@keyframes lgpopr{0%{opacity:0;transform:translate(0,0)}20%{opacity:1}100%{opacity:0;transform:translate(4px,-8px)}}
+.logo:hover .panbody{animation-duration:.7s}
+.logo:hover .steam{animation-duration:1.2s}
+.logotip{position:absolute;left:-6px;top:calc(100% + 12px);z-index:20;background:#2B1E16;color:#FFFAF2;font-family:'Kalam',cursive;font-size:17px;line-height:1.2;font-weight:400;padding:7px 14px;border-radius:12px;white-space:nowrap;opacity:0;transform:translateY(-4px) rotate(-2deg);pointer-events:none;transition:opacity .2s ease-out,transform .2s ease-out}
+.logotip::before{content:"";position:absolute;left:22px;top:-6px;width:12px;height:12px;background:#2B1E16;transform:rotate(45deg);border-radius:2px}
+@media (hover: hover) and (pointer: fine){.logo:hover .logotip,.logo:focus-visible .logotip{opacity:1;transform:translateY(0) rotate(-2deg)}}
+@media (prefers-reduced-motion: reduce){.logo .steam,.logo .panbody,.logo .pop{animation:none}.logo .pop{opacity:0}.logotip{transition:none}}
+</style>
+</helmet>
+<div style="background: #F6EFE3; color: #2B1E16; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 17px; line-height: 1.55">
+
+<header style="position: sticky; top: 0; z-index: 10; background: #F6EFE3; border-bottom: 1px solid #E8DCC8">
+<div style="max-width: 1040px; margin: 0 auto; padding: 18px clamp(24px, 7vw, 120px); display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center; justify-content: space-between">
+<a class="logo" href="#top" aria-label="Aayush Kriti, home" style="display: flex; align-items: flex-end; gap: 10px; text-decoration: none">
+<svg width="40" height="36" viewBox="0 0 44 40" fill="none" stroke="#2B1E16" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="overflow: visible"><path class="steam s1" d="M14 4c-2 3 2 5 0 8" stroke="#C0391B"></path><path class="steam s2" d="M21 2c-2 3 2 5 0 8" stroke="#C0391B"></path><path class="steam s3" d="M28 4c-2 3 2 5 0 8" stroke="#C0391B"></path><circle class="pop pl" cx="12" cy="17" r="1.4" fill="#EDA92A" stroke="none"></circle><circle class="pop pr" cx="28" cy="17" r="1.2" fill="#EDA92A" stroke="none"></circle><g class="panbody"><path d="M6 20h28v8a8 8 0 0 1-8 8H14a8 8 0 0 1-8-8z"></path><path d="M34 22h8"></path></g></svg>
+<span style="font-family: 'Kalam', cursive; font-size: 28px; line-height: 1; font-weight: 700">aayush</span>
+<span class="logotip" aria-hidden="true">hi! something's always cooking here</span>
+</a>
+<nav class="navlinks" aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 8px 32px; align-items: center; font-size: 16px; font-weight: 500">
+<a class="navlink" href="#work">Work</a>
+<a class="navlink" href="#cook">How I cook</a>
+<a class="navlink" href="#tools">Tools</a>
+<a class="navlink" href="#kitchen">Kitchen</a>
+<a class="navlink" href="#about">About</a>
+<a class="navlink" href="#contact">Contact</a>
+<a class="btn btn-ghost" href="/assets/5e3463ffe5e8b1543dea892686f828e1.pdf" download="Aayush_Kriti_Resume.pdf" target="_blank" rel="noopener" aria-label="Download resume (PDF)" style="font-weight: 600; padding: 9px 18px; border: 1.5px solid #2B1E16; border-radius: 999px; text-decoration: none">Resume ↓</a>
+</nav>
+<button type="button" class="burger" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-label="{{ burgerLabel }}" style="width: 48px; height: 48px; align-items: center; justify-content: center; border: 1.5px solid #2B1E16; border-radius: 999px; background: transparent; color: #2B1E16; cursor: pointer; padding: 0">
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"></path></svg>
+</sc-if>
+<sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}">
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"></path></svg>
+</sc-if>
+</button>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<nav class="mobilemenu" aria-label="Main, mobile" style="flex-basis: 100%; flex-direction: column; gap: 2px; padding: 8px 0 12px; border-top: 1px solid #DCCDB6; font-size: 22px; font-weight: 600">
+<a href="#work" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0">Work</a>
+<a href="#cook" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0">How I cook</a>
+<a href="#tools" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0">Tools</a>
+<a href="#kitchen" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0">Kitchen</a>
+<a href="#about" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0">About</a>
+<a href="#contact" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0">Contact</a>
+<a href="/assets/5e3463ffe5e8b1543dea892686f828e1.pdf" download="Aayush_Kriti_Resume.pdf" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0">Resume ↓</a>
+<span style="font-family: 'Kalam', cursive; font-size: 18px; font-weight: 400; color: #C0391B; padding-top: 8px">pick a course</span>
+</nav>
+</sc-if>
+</div>
+</header>
+
+<section id="top" style="max-width: 1040px; margin: 0 auto; padding: 80px clamp(24px, 7vw, 120px) 120px; display: flex; flex-wrap: wrap; gap: 64px 72px; align-items: center">
+<div style="flex: 3 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 32px">
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 12px; border-radius: 999px; background: #FFFAF2; border: 1px solid #DCCDB6; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .04em; color: #6B5242"><span class="dot" style="width: 8px; height: 8px; border-radius: 999px; background: #3E6B2F"></span>Now cooking: EWM web client modernization</span>
+<h1 style="margin: 0; font-size: clamp(46px, 6.4vw, 92px); line-height: 0.98; font-weight: 700; letter-spacing: -0.035em; text-wrap: balance; width: 100%; max-width: 576px">I make complicated software easier to <span style="font-family: 'Shrikhand', Georgia, serif; font-weight: 400; letter-spacing: 0; color: #C0391B; white-space: nowrap">digest.</span></h1>
+<p style="margin: 0; width: 100%; max-width: 560px; font-size: 21px; line-height: 33px; color: #6B5242">I'm Aayush, <strong style="color: #2B1E16; font-weight: 600">UX Designer @ IBM</strong>. I design enterprise software and AI features by day, and cook by night.</p>
+</div>
+<div style="flex: 0 1 400px; min-width: 0; position: relative; padding: 24px 8px 8px">
+<figure class="pola" style="margin: 0; position: relative; background: #FFFCF5; padding: 16px 16px 22px; transform: rotate(2.5deg); box-shadow: 0 2px 0 #EDE1CC, 0 24px 48px rgba(43,30,22,.14)">
+<span style="position: absolute; top: -18px; left: 50%; transform: translateX(-50%) rotate(-3deg); background: #EDA92A; color: #2B1E16; font-family: 'Kalam', cursive; font-weight: 700; font-size: 20px; padding: 5px 30px; opacity: .94; box-shadow: 0 1px 0 rgba(43,30,22,.12)">chef mode</span>
+<img src="/assets/b8f79c8ebee8178c123107d513e50779.jpg" alt="Aayush by a lake, in a red block-print shirt" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover">
+<figcaption style="margin-top: 14px; text-align: center; font-family: 'Kalam', cursive; font-size: 22px; color: #C0391B">asks AI dumb questions, on purpose</figcaption>
+</figure>
+</div>
+<nav class="menustrip" aria-label="Chef's menu" style="flex-basis: 100%; background: #FFFAF2; border: 1.5px solid #2B1E16; border-radius: 6px; box-shadow: 0 2px 0 #EDE1CC, 0 18px 36px rgba(43,30,22,.10); overflow: hidden">
+<div class="mhead" style="padding: 22px 26px; display: flex; flex-direction: column; justify-content: center; gap: 2px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; color: #6B5242">WELCOME TO MY KITCHEN</span>
+<span style="font-family: 'Shrikhand', Georgia, serif; font-size: 28px; line-height: 1.15; color: #C0391B">Chef's menu</span>
+<span style="font-family: 'Kalam', cursive; font-size: 16px; color: #6B5242">five courses, no reservations</span>
+</div>
+<a class="course" href="#work" style="padding: 22px 24px; display: flex; flex-direction: column; gap: 4px; text-decoration: none"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #957F6E">COURSE 01</span><span class="cname" style="font-size: 19px; font-weight: 700; letter-spacing: -0.01em">Mains</span><span style="font-family: 'Kalam', cursive; font-size: 16px; color: #6B5242">the work</span></a>
+<a class="course" href="#cook" style="padding: 22px 24px; display: flex; flex-direction: column; gap: 4px; text-decoration: none"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #957F6E">COURSE 02</span><span class="cname" style="font-size: 19px; font-weight: 700; letter-spacing: -0.01em">How I cook</span><span style="font-family: 'Kalam', cursive; font-size: 16px; color: #6B5242">the process</span></a>
+<a class="course" href="#tools" style="padding: 22px 24px; display: flex; flex-direction: column; gap: 4px; text-decoration: none"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #957F6E">COURSE 03</span><span class="cname" style="font-size: 19px; font-weight: 700; letter-spacing: -0.01em">The utensils</span><span style="font-family: 'Kalam', cursive; font-size: 16px; color: #6B5242">the tools</span></a>
+<a class="course" href="#kitchen" style="padding: 22px 24px; display: flex; flex-direction: column; gap: 4px; text-decoration: none"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #957F6E">COURSE 04</span><span class="cname" style="font-size: 19px; font-weight: 700; letter-spacing: -0.01em">The other kitchen</span><span style="font-family: 'Kalam', cursive; font-size: 16px; color: #6B5242">off the clock</span></a>
+<a class="course" href="#about" style="padding: 22px 24px; display: flex; flex-direction: column; gap: 4px; text-decoration: none"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #957F6E">COURSE 05</span><span class="cname" style="font-size: 19px; font-weight: 700; letter-spacing: -0.01em">How I got here</span><span style="font-family: 'Kalam', cursive; font-size: 16px; color: #6B5242">the story</span></a>
+</nav>
+</section>
+
+<section id="work" style="max-width: 1040px; margin: 0 auto; padding: 96px clamp(24px, 7vw, 120px) 128px; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px 24px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #6B5242">COURSE 01</span>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px">
+<h2 style="margin: 0; font-size: clamp(48px, 6.4vw, 88px); line-height: 0.95; font-weight: 700; letter-spacing: -0.035em">Mains</h2>
+<span style="font-family: 'Kalam', cursive; font-size: 24px; color: #C0391B">three dishes, two under NDA</span>
+</div>
+</div>
+<a class="btn btn-ghost" href="FullMenu.dc.html" aria-label="See the full menu of work" style="margin-left: auto; font-size: 16px; font-weight: 600; padding: 11px 22px; border: 1.5px solid #2B1E16; border-radius: 999px; text-decoration: none; white-space: nowrap">See the full menu →</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 32px">
+<sc-for list="{{ mains }}" as="m" hint-placeholder-count="3">
+<article class="card" style="background: #FFFAF2; border: 1px solid #DCCDB6; border-radius: 20px; overflow: hidden; display: flex; flex-wrap: wrap">
+<div style="{{ m.coverStyle }}">
+<div class="cover-art" style="position: absolute; inset: 0">
+<sc-if value="{{ m.isEwm }}" hint-placeholder-val="{{ true }}">
+<svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#2B1E16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%"><g transform="translate(300 210) scale(.62) translate(-300 -210)" stroke-width="3.8"><ellipse cx="300" cy="222" rx="132" ry="130" fill="#2B1E16" opacity=".08" stroke="none"></ellipse><circle cx="300" cy="210" r="130" fill="#FFFAF2"></circle><circle cx="300" cy="210" r="100" stroke-width="1.5" opacity=".25"></circle><rect x="250" y="170" width="16" height="16" rx="4"></rect><path d="M282 178h68"></path><rect x="250" y="202" width="16" height="16" rx="4" fill="#C0391B" stroke="#C0391B"></rect><path d="M282 210h52"></path><rect x="250" y="234" width="16" height="16" rx="4"></rect><path d="M282 242h60"></path></g></svg>
+</sc-if>
+<sc-if value="{{ m.isMaas }}" hint-placeholder-val="{{ false }}">
+<svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#2B1E16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%"><g transform="translate(300 210) scale(.62) translate(-300 -210)" stroke-width="3.8"><ellipse cx="300" cy="222" rx="132" ry="130" fill="#2B1E16" opacity=".08" stroke="none"></ellipse><circle cx="300" cy="210" r="130" fill="#FFFAF2"></circle><circle cx="300" cy="210" r="100" stroke-width="1.5" opacity=".25"></circle><rect x="270" y="152" width="60" height="112" rx="12"></rect><path d="M292 166h16"></path><circle cx="300" cy="212" r="18" fill="#3E6B2F" stroke="#3E6B2F"></circle><path d="M292 212l6 6 11-11" stroke="#FFFAF2"></path></g></svg>
+</sc-if>
+<sc-if value="{{ m.isZliq }}" hint-placeholder-val="{{ false }}">
+<svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#2B1E16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%"><g transform="translate(300 210) scale(.62) translate(-300 -210)" stroke-width="3.8"><ellipse cx="300" cy="222" rx="132" ry="130" fill="#2B1E16" opacity=".08" stroke="none"></ellipse><circle cx="300" cy="210" r="130" fill="#FFFAF2"></circle><circle cx="300" cy="210" r="100" stroke-width="1.5" opacity=".25"></circle><path d="M300 272c-30-34-46-58-46-80a46 46 0 0 1 92 0c0 22-16 46-46 80z"></path><circle cx="300" cy="192" r="16" fill="#7E45D8" stroke="#7E45D8"></circle></g></svg>
+</sc-if>
+</div>
+<span style="position: absolute; left: 20px; top: 20px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #2B1E16; color: #FFFAF2; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .06em"><sc-if value="{{ m.locked }}" hint-placeholder-val="{{ true }}"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="#FFFAF2" stroke-width="1.6" aria-hidden="true"><rect x="1.5" y="6" width="9" height="7" rx="1.5"></rect><path d="M3.5 6V4a2.5 2.5 0 0 1 5 0v2"></path></svg></sc-if>{{ m.badge }}</span>
+<span style="position: absolute; right: 20px; bottom: 16px; font-family: 'Shrikhand', Georgia, serif; font-size: 22px; color: #2B1E16; opacity: .9">No. {{ m.num }}</span>
+</div>
+<div style="flex: 1 1 400px; min-width: 0; padding: 40px; display: flex; flex-direction: column; gap: 18px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .1em; color: #6B5242">{{ m.label }}</span>
+<h3 style="margin: 0; font-size: clamp(26px, 2.6vw, 34px); line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance">{{ m.title }}</h3>
+<p style="margin: 0; font-size: 17px; line-height: 26px; color: #6B5242; max-width: 30em">{{ m.desc }}</p>
+<sc-if value="{{ m.hasCase }}" hint-placeholder-val="{{ true }}">
+<a class="btn btn-solid" href="{{ m.href }}" style="margin-top: 8px; align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; padding: 12px 22px; background: #2B1E16; color: #FFFAF2; border-radius: 999px; text-decoration: none">Read the recipe →</a>
+</sc-if>
+<sc-if value="{{ m.noCase }}" hint-placeholder-val="{{ false }}">
+<div style="margin-top: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px"><button type="button" class="btn btn-solid" onClick="{{ m.req }}" style="font: inherit; border: 0; cursor: pointer; align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; padding: 12px 22px; background: #2B1E16; color: #FFFAF2; border-radius: 999px; text-decoration: none"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="1.5" y="6" width="9" height="7" rx="1.5"></rect><path d="M3.5 6V4a2.5 2.5 0 0 1 5 0v2"></path></svg>Request access</button><sc-if value="{{ m.pw }}" hint-placeholder-val="{{ false }}"><a href="{{ m.pwHref }}" style="font-size: 15px; font-weight: 600; color: #6B5242">Have the password? Open it →</a></sc-if></div>
+</sc-if>
+</div>
+</article>
+</sc-for>
+</div>
+</section>
+
+<section id="cook" ref="{{ setCook }}" style="max-width: 1040px; margin: 0 auto; padding: 96px clamp(24px, 7vw, 120px) 128px; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #6B5242">COURSE 02</span>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px">
+<h2 style="margin: 0; font-size: clamp(48px, 6.4vw, 88px); line-height: 0.95; font-weight: 700; letter-spacing: -0.035em">How I cook</h2>
+<span style="font-family: 'Kalam', cursive; font-size: 24px; color: #C0391B">the questions on the stove while I work</span>
+</div>
+</div>
+<div class="cookgap" style="display: flex; gap: 48px; align-items: flex-start">
+<div class="pathcol" style="flex: 0 0 520px; height: 1120px; position: relative">
+<svg width="520" height="1120" viewBox="0 0 520 1120" fill="none" aria-hidden="true" style="position: absolute; inset: 0">
+<path d="M70 60 C70 180 250 180 250 300 C250 420 70 420 70 540 C70 660 250 660 250 780 C250 900 70 900 70 1020" stroke="#E8D9C2" stroke-width="16" stroke-linecap="round"></path>
+<path d="M70 60 C70 180 250 180 250 300 C250 420 70 420 70 540 C70 660 250 660 250 780 C250 900 70 900 70 1020" stroke="#F6EFE3" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 10"></path>
+<path class="trail" d="M70 60 C70 180 250 180 250 300 C250 420 70 420 70 540 C70 660 250 660 250 780 C250 900 70 900 70 1020" pathLength="100" stroke="#C0391B" stroke-width="16" stroke-linecap="round" stroke-dasharray="100" style="{{ trailStyle }}"></path>
+</svg>
+<sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
+<span style="{{ st.pinStyle }}"></span>
+<span class="qlabel" style="{{ st.qStyle }}">{{ st.q }}</span>
+</sc-for>
+<span class="pan" style="{{ panStyle }}">
+<svg width="32" height="32" viewBox="0 0 30 30" fill="none" stroke="#2B1E16" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 13h18v4a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6z"></path><path d="M21 15h6"></path><path d="M9 4c-1.5 2 1.5 3 0 5M15 4c-1.5 2 1.5 3 0 5" stroke="#C0391B"></path></svg>
+</span>
+</div>
+<ol style="flex: 1 1 360px; min-width: 0; list-style: none; margin: 0; padding: 30px 0 0; display: flex; flex-direction: column">
+<sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
+<li class="stepli" style="min-height: 240px; display: flex; flex-direction: column; gap: 12px">
+<button type="button" onClick="{{ st.pick }}" class="step" style="{{ st.btnStyle }}">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em">STEP {{ st.n }}</span>
+<span style="display: block; font-size: clamp(26px, 2.6vw, 34px); line-height: 1.15; font-weight: 700; letter-spacing: -0.02em">{{ st.title }}</span>
+</button>
+<sc-if value="{{ st.on }}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0; max-width: 32em; font-size: 18px; line-height: 29px; color: #6B5242; white-space: pre-line">{{ st.desc }}</p>
+<p style="margin: 0; font-family: 'Kalam', cursive; font-size: 21px; color: #C0391B">{{ st.q }}</p>
+</sc-if>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<section id="tools" style="max-width: 1040px; margin: 0 auto; padding: 32px clamp(24px, 7vw, 120px) 128px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #6B5242">COURSE 03</span>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px">
+<h2 style="margin: 0; font-size: clamp(48px, 6.4vw, 88px); line-height: 0.95; font-weight: 700; letter-spacing: -0.035em">The utensils</h2>
+<span style="font-family: 'Kalam', cursive; font-size: 24px; color: #C0391B">what hangs on my rail</span>
+</div>
+<p style="margin: 0; max-width: 34em; font-size: 18px; line-height: 28px; color: #6B5242">The tools I reach for, from the first sticky note to the last pixel.</p>
+</div>
+<div style="position: relative; padding-top: 18px">
+<span aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 12px; border-radius: 999px; background: #8A6A52; box-shadow: inset 0 -3px 0 rgba(43,30,22,.25)"></span>
+<ul class="toolgrid" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 28px 18px">
+<sc-for list="{{ tools }}" as="tl" hint-placeholder-count="9">
+<li class="tool" style="display: flex; flex-direction: column; align-items: center">
+<span aria-hidden="true" style="width: 2px; height: 14px; background: #8A6A52"></span>
+<div class="toolcard" style="flex: 1; width: 100%; box-sizing: border-box; background: #FFFAF2; border: 1px solid #DCCDB6; border-radius: 16px; padding: 16px 14px 18px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+<span aria-hidden="true" style="width: 14px; height: 14px; margin-top: -24px; border-radius: 999px; border: 2px solid #8A6A52; background: #F6EFE3; box-sizing: border-box"></span>
+<img class="toollogo" src="{{ tl.logo }}" alt="" width="44" height="44" style="display: block; width: 44px; height: 44px; object-fit: contain; margin: 8px 0 6px">
+<strong style="font-size: 17px; line-height: 22px">{{ tl.name }}</strong>
+<span style="font-size: 13px; line-height: 18px; color: #6B5242">{{ tl.use }}</span>
+<span style="{{ tl.tagStyle }}">{{ tl.tag }}</span>
+</div>
+</li>
+</sc-for>
+</ul>
+</div>
+</section>
+
+<section class="zoomsec" ref="{{ setZoom }}" aria-label="Welcome to my other kitchen" style="position: relative; height: 1700px">
+<div style="position: sticky; top: 0; height: 100vh; max-height: 900px; overflow: hidden">
+<div aria-hidden="true" style="{{ panStyle2 }}">
+<svg width="400" height="340" viewBox="0 -80 400 340" fill="none" style="display: block; overflow: visible">
+<g style="{{ steamStyle }}" stroke="#C0391B" stroke-width="5" stroke-linecap="round">
+<path d="M95 -10 C80 -30 110 -45 95 -70"></path><path d="M130 -2 C115 -26 145 -44 130 -74"></path><path d="M165 -10 C150 -30 180 -45 165 -70"></path>
+</g>
+<rect x="238" y="116" width="158" height="28" rx="14" fill="#3D2C22" stroke="#2B1E16" stroke-width="3"></rect>
+<circle cx="372" cy="130" r="6" fill="#F6EFE3"></circle>
+<circle cx="130" cy="130" r="126" fill="#3D2C22"></circle>
+<circle cx="130" cy="130" r="112" fill="#2B1E16"></circle>
+<path d="M58 70 A96 96 0 0 1 120 36" stroke="#5A463A" stroke-width="6" stroke-linecap="round"></path>
+<g style="{{ sizzleStyle }}" fill="#EDA92A"><circle cx="100" cy="150" r="4"></circle><circle cx="150" cy="110" r="3"></circle><circle cx="165" cy="165" r="5"></circle><circle cx="118" cy="98" r="2.5"></circle><circle cx="86" cy="118" r="3"></circle></g>
+</svg>
+</div>
+<div style="{{ zoomTextStyle }}">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #6B5242">INTERMISSION</span>
+<p style="margin: 0; font-size: clamp(36px, 5vw, 68px); line-height: 1; font-weight: 700; letter-spacing: -0.035em; text-wrap: balance">Welcome to my other <span style="font-family: 'Shrikhand', Georgia, serif; font-weight: 400; letter-spacing: 0; color: #C0391B">kitchen</span></p>
+<p style="margin: 0; font-family: 'Kalam', cursive; font-size: 22px; color: #6B5242">off the screen, still stirring</p>
+<a href="#kitchen" style="margin-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #6B5242; text-decoration: none">SCROLL TO HOP IN THE PAN ↓</a>
+</div>
+</div>
+</section>
+
+<div ref="{{ setKitchen }}" class="inpan" style="background: #2B1E16; color: #F6EFE3">
+<div style="{{ kitchenPopStyle }}">
+<section id="kitchen" style="max-width: 1040px; margin: 0 auto; padding: 72px clamp(24px, 7vw, 120px) 128px; display: flex; flex-direction: column; gap: 64px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #CDB9A5">COURSE 04</span>
+<h2 style="margin: 0; font-size: clamp(40px, 5vw, 68px); line-height: 1; font-weight: 700; letter-spacing: -0.03em; text-wrap: balance">Beyond pixels and prototypes, I…</h2>
+</div>
+<ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px 40px; font-size: 19px; line-height: 28px; color: #E8DCC8">
+<li style="border-top: 1px solid #5A463A; padding-top: 16px"><strong style="color: #EDA92A; font-weight: 700">cook</strong>, mostly in one very loyal pan</li>
+<li style="border-top: 1px solid #5A463A; padding-top: 16px"><strong style="color: #EDA92A; font-weight: 700">ride</strong> a Triumph Speed 400</li>
+<li style="border-top: 1px solid #5A463A; padding-top: 16px"><strong style="color: #EDA92A; font-weight: 700">build odd things</strong> after asking AI odd questions</li>
+</ul>
+<div class="polas" aria-label="Photos from my kitchen and weekends" role="region" style="overflow: hidden; margin: 0 calc(-1 * clamp(24px, 7vw, 120px)); padding: 20px 0 36px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent)">
+<div class="polatrack" style="display: flex; align-items: flex-start; width: max-content">
+<figure class="pola" style="margin: 0; width: 248px; flex-shrink: 0; background: #FFFCF5; padding: 12px 12px 16px; transform: rotate(-3deg); box-shadow: 0 18px 36px rgba(0,0,0,.35)"><img src="/assets/69d8ce40f1343e14c4ee367a826654a9.jpg" alt="Skewers on a charcoal grill" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="margin-top: 10px; font-family: 'Kalam', cursive; font-size: 18px; color: #3E6B2F">grill-skewers.jpg</figcaption></figure>
+<figure class="pola" style="margin: 0; width: 248px; flex-shrink: 0; background: #FFFCF5; padding: 12px 12px 16px; transform: rotate(2deg); box-shadow: 0 18px 36px rgba(0,0,0,.35)"><img src="/assets/1f26511fc891ab90cb9dab3d5800415e.jpg" alt="Paneer and capsicum curry topped with coriander" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="margin-top: 10px; font-family: 'Kalam', cursive; font-size: 18px; color: #3E6B2F">paneer-curry.jpg</figcaption></figure>
+<figure class="pola" style="margin: 0; width: 248px; flex-shrink: 0; background: #FFFCF5; padding: 12px 12px 16px; transform: rotate(-1.5deg); box-shadow: 0 18px 36px rgba(0,0,0,.35)"><img src="/assets/a394edd7e64ee17ad53e3a3bae008a96.jpg" alt="Aayush with his Triumph Speed 400" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="margin-top: 10px; font-family: 'Kalam', cursive; font-size: 18px; color: #3E6B2F">weekend-mode.jpg</figcaption></figure>
+<figure class="pola" style="margin: 0; width: 248px; flex-shrink: 0; background: #FFFCF5; padding: 12px 12px 16px; transform: rotate(3deg); box-shadow: 0 18px 36px rgba(0,0,0,.35)"><img src="/assets/4efc556a3404b331b9fd6ac66e335fb9.jpg" alt="Cookie and brownie bake" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="margin-top: 10px; font-family: 'Kalam', cursive; font-size: 18px; color: #3E6B2F">cookie-cake.jpg</figcaption></figure>
+<figure class="pola" style="margin: 0; width: 248px; flex-shrink: 0; background: #FFFCF5; padding: 12px 12px 16px; transform: rotate(-2.5deg); box-shadow: 0 18px 36px rgba(0,0,0,.35)"><img src="/assets/a76eb2c5f7b02fdfa333abf864583d9d.jpg" alt="A pan of chickpea curry with coriander" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="margin-top: 10px; font-family: 'Kalam', cursive; font-size: 18px; color: #3E6B2F">chole.jpg</figcaption></figure>
+<figure class="pola" style="margin: 0; width: 248px; flex-shrink: 0; background: #FFFCF5; padding: 12px 12px 16px; transform: rotate(1.5deg); box-shadow: 0 18px 36px rgba(0,0,0,.35)"><img src="/assets/8a792aa389303fa791573ab28ed0dbfd.jpg" alt="Mango cheesecake tart topped with diced mango" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="margin-top: 10px; font-family: 'Kalam', cursive; font-size: 18px; color: #3E6B2F">mango-tart.jpg</figcaption></figure>
+<figure class="pola" aria-hidden="true" style="margin: 0; width: 248px; flex-shrink: 0; background: #FFFCF5; padding: 12px 12px 16px; transform: rotate(-3deg); box-shadow: 0 18px 36px rgba(0,0,0,.35)"><img src="/assets/69d8ce40f1343e14c4ee367a826654a9.jpg" alt="Skewers on a charcoal grill" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="margin-top: 10px; font-family: 'Kalam', cursive; font-size: 18px; color: #3E6B2F">grill-skewers.jpg</figcaption></figure>
+<figure class="pola" aria-hidden="true" style="margin: 0; width: 248px; flex-shrink: 0; background: #FFFCF5; padding: 12px 12px 16px; transform: rotate(2deg); box-shadow: 0 18px 36px rgba(0,0,0,.35)"><img src="/assets/1f26511fc891ab90cb9dab3d5800415e.jpg" alt="Paneer and capsicum curry topped with coriander" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="margin-top: 10px; font-family: 'Kalam', cursive; font-size: 18px; color: #3E6B2F">paneer-curry.jpg</figcaption></figure>
+<figure class="pola" aria-hidden="true" style="margin: 0; width: 248px; flex-shrink: 0; background: #FFFCF5; padding: 12px 12px 16px; transform: rotate(-1.5deg); box-shadow: 0 18px 36px rgba(0,0,0,.35)"><img src="/assets/a394edd7e64ee17ad53e3a3bae008a96.jpg" alt="Aayush with his Triumph Speed 400" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="margin-top: 10px; font-family: 'Kalam', cursive; font-size: 18px; color: #3E6B2F">weekend-mode.jpg</figcaption></figure>
+<figure class="pola" aria-hidden="true" style="margin: 0; width: 248px; flex-shrink: 0; background: #FFFCF5; padding: 12px 12px 16px; transform: rotate(3deg); box-shadow: 0 18px 36px rgba(0,0,0,.35)"><img src="/assets/4efc556a3404b331b9fd6ac66e335fb9.jpg" alt="Cookie and brownie bake" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="margin-top: 10px; font-family: 'Kalam', cursive; font-size: 18px; color: #3E6B2F">cookie-cake.jpg</figcaption></figure>
+<figure class="pola" aria-hidden="true" style="margin: 0; width: 248px; flex-shrink: 0; background: #FFFCF5; padding: 12px 12px 16px; transform: rotate(-2.5deg); box-shadow: 0 18px 36px rgba(0,0,0,.35)"><img src="/assets/a76eb2c5f7b02fdfa333abf864583d9d.jpg" alt="A pan of chickpea curry with coriander" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="margin-top: 10px; font-family: 'Kalam', cursive; font-size: 18px; color: #3E6B2F">chole.jpg</figcaption></figure>
+<figure class="pola" aria-hidden="true" style="margin: 0; width: 248px; flex-shrink: 0; background: #FFFCF5; padding: 12px 12px 16px; transform: rotate(1.5deg); box-shadow: 0 18px 36px rgba(0,0,0,.35)"><img src="/assets/8a792aa389303fa791573ab28ed0dbfd.jpg" alt="Mango cheesecake tart topped with diced mango" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="margin-top: 10px; font-family: 'Kalam', cursive; font-size: 18px; color: #3E6B2F">mango-tart.jpg</figcaption></figure>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 24px; padding-top: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px">
+<h3 style="margin: 0; font-size: 32px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em">Side dishes</h3>
+<span style="font-family: 'Kalam', cursive; font-size: 21px; color: #EDA92A">odd things I built, and rooms I helped fill</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px">
+<sc-for list="{{ odd }}" as="o" hint-placeholder-count="5">
+<div class="side" style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<sc-if value="{{ o.img }}" hint-placeholder-val="{{ false }}">
+<img class="side-img" src="{{ o.img }}" alt="{{ o.alt }}" style="{{ o.imgStyle }}">
+</sc-if>
+<sc-if value="{{ o.noImg }}" hint-placeholder-val="{{ true }}">
+<div class="side-img" style="height: 160px; border-radius: 14px; border: 1.5px dashed #5A463A; display: flex; align-items: center; justify-content: center; font-family: 'Kalam', cursive; font-size: 19px; color: #CDB9A5">still marinating…</div>
+</sc-if>
+<span style="font-size: 16px; font-weight: 600; color: #F6EFE3">{{ o.name }}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .04em; color: #CDB9A5">{{ o.file }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+</div>
+
+<section id="about" style="max-width: 1040px; margin: 0 auto; padding: 128px clamp(24px, 7vw, 120px) 112px; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #CDB9A5">COURSE 05</span>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px">
+<h2 style="margin: 0; font-size: clamp(44px, 5.6vw, 76px); line-height: 0.95; font-weight: 700; letter-spacing: -0.035em">How I got here</h2>
+<span style="font-family: 'Kalam', cursive; font-size: 24px; color: #EDA92A">slow-cooked</span>
+</div>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; border-top: 2px solid #5A463A">
+<li style="position: relative; padding-top: 28px; display: flex; flex-direction: column; gap: 8px"><span aria-hidden="true" style="position: absolute; top: -9px; left: 0; width: 16px; height: 16px; border-radius: 999px; background: #F6EFE3; border: 2px solid #F6EFE3; box-sizing: border-box"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .06em; color: #CDB9A5">2019 – 2023</span><span style="font-size: 24px; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em">Bachelor of Visual Arts</span><span style="font-size: 17px; color: #CDB9A5">Graphic &amp; Communication Design<br>LISAA School of Design, Bangalore</span></li>
+<li style="position: relative; padding-top: 28px; display: flex; flex-direction: column; gap: 8px"><span aria-hidden="true" style="position: absolute; top: -9px; left: 0; width: 16px; height: 16px; border-radius: 999px; background: #EDA92A; border: 2px solid #F6EFE3; box-sizing: border-box"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .06em; color: #CDB9A5">2023 – 2025</span><span style="font-size: 24px; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em">Master of Design</span><span style="font-size: 17px; color: #CDB9A5">User Experience Design<br>Avantika University, Ujjain</span></li>
+<li style="position: relative; padding-top: 28px; display: flex; flex-direction: column; gap: 8px"><span aria-hidden="true" style="position: absolute; top: -9px; left: 0; width: 16px; height: 16px; border-radius: 999px; background: #C0391B; border: 2px solid #F6EFE3; box-sizing: border-box"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .06em; color: #CDB9A5">JAN 2025 – NOW</span><span style="font-size: 24px; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em">UX Designer, IBM</span><span style="font-size: 17px; color: #CDB9A5">Enterprise software and AI.</span></li>
+</ol>
+</section>
+
+<section id="contact" style="max-width: 1040px; margin: 0 auto; padding: 32px clamp(24px, 7vw, 120px) 96px">
+<div class="billcard" style="background: #FFFAF2; border: 1px solid #DCCDB6; border-radius: 28px; padding: clamp(32px, 5vw, 72px); display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between; align-items: flex-end">
+<div style="flex: 2 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #6B5242">THE BILL</span>
+<h2 style="margin: 0; font-size: clamp(40px, 5.4vw, 72px); line-height: 1; font-weight: 700; letter-spacing: -0.035em; text-wrap: balance">Let's cook something that makes <span style="font-family: 'Shrikhand', Georgia, serif; font-weight: 400; letter-spacing: 0; color: #C0391B">sense.</span></h2>
+<span style="font-family: 'Kalam', cursive; font-size: 23px; color: #C0391B">walk-ins welcome, no reservations needed</span>
+</div>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .1em; color: #6B5242">FIND ME</span>
+<div class="mailpill" style="align-self: flex-start; max-width: 100%; display: inline-flex; align-items: center; gap: 16px; padding: 5px 5px 5px 20px; border: 1px solid #DCCDB6; border-radius: 999px; background: #F6EFE3; box-sizing: border-box">
+<a href="mailto:aayush.kriti3@gmail.com" style="min-width: 0; font-size: 18px; font-weight: 500; text-decoration: none; user-select: all; overflow-wrap: anywhere">aayush.kriti3@gmail.com</a>
+<button type="button" class="btn btn-solid" onClick="{{ copy }}" aria-label="Copy email address" style="flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 14px; font-weight: 600; padding: 9px 14px; border-radius: 999px; border: 0; background: #2B1E16; color: #FFFAF2; cursor: pointer"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="4.5" width="8" height="8" rx="1.5"></rect><path d="M9.5 2.5V2A1 1 0 0 0 8.5 1h-6A1 1 0 0 0 1.5 2v6.5a1 1 0 0 0 1 1h.5"></path></svg>{{ copyLabel }}</button>
+</div>
+<div style="display: flex; gap: 28px; font-size: 18px; font-weight: 600"><a href="https://www.linkedin.com/in/aayush-kriti-8a20751a0/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="/assets/5e3463ffe5e8b1543dea892686f828e1.pdf" download="Aayush_Kriti_Resume.pdf" target="_blank" rel="noopener" aria-label="Download resume (PDF)">Resume (PDF) ↓</a></div>
+</div>
+</div>
+</section>
+<footer style="max-width: 1040px; margin: 0 auto; padding: 24px 0 48px; margin-inline: max(clamp(24px, 7vw, 120px), calc((100% - 1040px) / 2)); border-top: 1px solid #5A463A; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 14px; color: #CDB9A5"><span style="padding-left: 0px">© 2026 Aayush Kriti</span><span style="font-family: Kalam, cursive; font-size: 18px">made with own taste!</span></footer>
+</div>
+
+<sc-if value="{{ reqOpen }}" hint-placeholder-val="{{ false }}">
+<dc-import name="AccessRequest" project="{{ reqProject }}" on-close="{{ closeReq }}" hint-size="100%,0px"></dc-import>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":8400}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { p: 0, z: 0, k: 1, copied: false, menuOpen: false, req: null };
+this.cookEl = null;
+this.zoomEl = null;
+this.kitEl = null;
+this.reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+this.onScroll = this.onScroll.bind(this);
+}
+componentDidMount() {
+window.addEventListener('scroll', this.onScroll, { passive: true });
+document.addEventListener('scroll', this.onScroll, { passive: true, capture: true });
+}
+componentWillUnmount() {
+window.removeEventListener('scroll', this.onScroll);
+document.removeEventListener('scroll', this.onScroll, { capture: true });
+}
+onScroll() {
+const vh = window.innerHeight || 800;
+const next = {};
+if (this.cookEl) {
+const r = this.cookEl.getBoundingClientRect();
+const raw = (vh * 0.55 - (r.top + 200)) / Math.max(1, r.height - 400);
+const p = Math.max(0, Math.min(1, raw));
+if (Math.abs(p - this.state.p) > 0.01) next.p = p;
+}
+if (this.zoomEl && !this.reduce) {
+const r = this.zoomEl.getBoundingClientRect();
+const stick = Math.min(vh, 900);
+const z = Math.max(0, Math.min(1, -r.top / Math.max(1, r.height - stick)));
+if (Math.abs(z - this.state.z) > 0.005) next.z = z;
+}
+if (this.kitEl && !this.reduce) {
+const r = this.kitEl.getBoundingClientRect();
+const k = Math.max(0, Math.min(1, (vh - r.top) / (vh * 0.6)));
+if (Math.abs(k - this.state.k) > 0.01) next.k = k;
+}
+if (Object.keys(next).length) this.setState(next);
+}
+renderVals() {
+const s = this.state;
+const pins = [[70, 60], [250, 300], [70, 540], [250, 780], [70, 1020]];
+const data = [
+{ n: '01', title: 'I read the whole recipe first', desc: 'A request usually hides a bigger need. I find the real ask before I open Figma, so we cook the right dish, not just the first one.', q: 'what are we actually cooking?' },
+{ n: '02', title: 'I check the pantry', desc: 'The product and Carbon already solve more than people expect. I look at what exists before I invent anything new.', q: 'what do we already have?' },
+{ n: '03', title: 'Mise en place before heat', desc: 'I map every screen and state before designing one, so nothing surprises us halfway through.', q: 'is everything laid out?' },
+{ n: '04', title: 'I taste as I go', desc: 'Small checks along the way beat one big reveal at the end.', q: 'would a first-timer get this?' },
+{ n: '05', title: 'I plate for the person eating', desc: 'The same work reads differently to an engineer, a PM and a customer.\nI shape it for whoever is reading.', q: "who's eating, and what do they need first?" }
+];
+const reached = Math.min(4, Math.floor(s.p * 4 + 0.001));
+const steps = data.map((d, i) => {
+const on = i <= reached;
+const x = pins[i][0], y = pins[i][1];
+return {
+...d,
+on: on,
+pick: () => this.setState({ p: i / 4 }),
+btnStyle: 'all: unset; cursor: pointer; display: flex; flex-direction: column; gap: 8px; color: ' + (on ? '#2B1E16' : '#957F6E') + ';',
+pinStyle: 'position: absolute; left: ' + (x - 13) + 'px; top: ' + (y - 13) + 'px; width: 26px; height: 26px; border-radius: 999px; border: 2px solid #2B1E16; box-sizing: border-box; background: ' + (on ? '#EDA92A' : '#FFFAF2') + '; box-shadow: 0 0 0 5px #F6EFE3;',
+qStyle: 'position: absolute; left: ' + (x + 30) + 'px; top: ' + (y - 16) + 'px; max-width: 230px; font-family: Kalam, cursive; font-size: 20px; line-height: 25px; color: #C0391B; opacity: ' + (on ? 1 : 0) + ';'
+};
+});
+const pin = pins[reached];
+const cover = (bg) => 'flex: 1 1 440px; min-width: 0; min-height: 340px; position: relative; overflow: hidden; background: ' + bg + ';';
+return {
+steps,
+setZoom: (el) => { this.zoomEl = el; },
+setKitchen: (el) => { this.kitEl = el; },
+panStyle2: (() => {
+const vw = window.innerWidth || 1280, vh = Math.min(window.innerHeight || 800, 900);
+const base = vw < 640 ? 0.62 : 0.85;
+const max = Math.hypot(vw, vh) / 2 / 112 * 1.08;
+const t = Math.max(0, (s.z - 0.15) / 0.85);
+const sc = base + t * t * (max - base);
+const rot = -14 + Math.min(1, s.z / 0.5) * 14;
+const lift = Math.sin(Math.min(1, s.z / 0.35) * Math.PI) * -18;
+return 'position: absolute; left: 50%; top: 60%; width: 400px; height: 340px; margin: -210px 0 0 -130px; transform-origin: 130px 210px; transform: translateY(' + lift.toFixed(1) + 'px) rotate(' + rot.toFixed(2) + 'deg) scale(' + sc.toFixed(3) + ');';
+})(),
+steamStyle: 'opacity: ' + Math.max(0, 1 - s.z * 3).toFixed(3) + ';',
+sizzleStyle: 'opacity: ' + Math.max(0, Math.min(1, (s.z - 0.1) * 4) * (1 - Math.max(0, Math.min(1, (s.z - 0.45) * 4)))).toFixed(3) + ';',
+zoomTextStyle: 'position: absolute; left: 0; right: 0; top: calc(6% + 64px); display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; padding: 0 24px; transform-origin: 50% 0; transform: translateY(' + (s.z * 260).toFixed(1) + 'px) scale(' + Math.max(0.2, 1 - s.z * 1.1).toFixed(3) + '); opacity: ' + Math.max(0, 1 - s.z * 2.2).toFixed(3) + ';',
+kitchenPopStyle: 'transform-origin: 50% 0; transform: translateY(' + ((1 - s.k) * 60).toFixed(1) + 'px) scale(' + (0.94 + s.k * 0.06).toFixed(3) + '); opacity: ' + (0.2 + s.k * 0.8).toFixed(3) + ';',
+setCook: (el) => { this.cookEl = el; },
+trailStyle: 'stroke-dashoffset: ' + (100 - s.p * 100) + ';',
+panStyle: 'position: absolute; left: ' + (pin[0] - 24) + 'px; top: ' + (pin[1] - 66) + 'px; width: 48px; height: 48px; border-radius: 999px; background: #FFFCF5; border: 1.5px solid #2B1E16; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 14px rgba(43,30,22,.12);',
+tools: [{ name: 'Figma', logo: '/assets/8460ecb1ae075daed85d22485b806598.png', use: 'UI, prototypes and design systems', tag: 'DESIGN', icon: 'M20 4v24 M13 28h14v18a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5z', accent: 'M18 33v12 M22 33v12', tagStyle: "font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px; margin-top: 2px; border: 1px solid #CDB9A5; color: #6B5242;" },
+{ name: 'Mural', logo: '/assets/4c1aa4a91fb7c7d418e80b9dc19516ee.png', use: 'Workshops and research synthesis', tag: 'WHITEBOARD', icon: 'M20 4v6 M20 50v6 M13 10h14v40h-14z', accent: 'M13 20h14 M13 40h14', tagStyle: "font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px; margin-top: 2px; border: 1px solid #CDB9A5; color: #6B5242;" },
+{ name: 'IBM Bob', logo: '/assets/79a3981173158a6f94e1430570b80e0e.png', use: 'Building skills that save the team time', tag: 'AI', icon: 'M17 4l-6 50 M23 4l6 50 M17 4h6', accent: 'M11 46l3 0 M29 46l-3 0', tagStyle: "font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px; margin-top: 2px; background: #2B1E16; color: #FFFAF2;" },
+{ name: 'Claude', logo: '/assets/d5e8888aedfeb019d759559ea27d9c17.png', use: 'Research, writing and quick prototypes', tag: 'AI', icon: 'M20 4v18 M20 22c-11 4-11 26 0 31c11-5 11-27 0-31z', accent: 'M20 22c-4 7-4 24 0 31 M20 22c4 7 4 24 0 31', tagStyle: "font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px; margin-top: 2px; background: #2B1E16; color: #FFFAF2;" },
+{ name: 'ChatGPT', logo: '/assets/67d863f74104cf3155398f9a2c587631.png', use: 'A second opinion on ideas', tag: 'AI', icon: 'M20 4v32 M9 38a11 11 0 0 0 22 0z', accent: 'M14 42h12', tagStyle: "font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px; margin-top: 2px; background: #2B1E16; color: #FFFAF2;" },
+{ name: 'Copilot', logo: '/assets/ca31d8a5ee80b72fe1722042410b187e.svg', use: 'Everyday help across tools', tag: 'AI', icon: 'M20 4v20 M13 24h14v28h-14z', accent: 'M17 32h6 M17 40h6', tagStyle: "font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px; margin-top: 2px; background: #2B1E16; color: #FFFAF2;" },
+{ name: 'Illustrator', logo: '/assets/01989755664c98fb1f54b1e26a9deca0.png', use: 'Icons and illustration', tag: 'VISUAL', icon: 'M20 4v18 M15 22h10 M16 22c-2 10-1 22 4 32c5-10 6-22 4-32', accent: 'M20 30v14', tagStyle: "font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px; margin-top: 2px; border: 1px solid #CDB9A5; color: #6B5242;" },
+{ name: 'Photoshop', logo: '/assets/8cd712d7a30f88d71ac91f5944d7eb80.png', use: 'Photo edits and mockups', tag: 'VISUAL', icon: 'M20 4v6 M12 10h16l3 44h-22z', accent: 'M16 20h2 M22 20h2 M16 30h2 M22 30h2 M16 40h2 M22 40h2', tagStyle: "font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px; margin-top: 2px; border: 1px solid #CDB9A5; color: #6B5242;" },
+{ name: 'Framer', logo: '/assets/1244c0fc72cf7b5af52fa8f72f7ec6f4.png', use: 'Just a pinch, for quick sites', tag: 'A PINCH', icon: 'M20 4v8 M14 12h12l2 8v28a4 4 0 0 1-4 4h-8a4 4 0 0 1-4-4v-28z', accent: 'M18 17h.01 M22 17h.01 M20 15h.01', tagStyle: "font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px; margin-top: 2px; border: 1px dashed #957F6E; color: #6B5242;" }],
+reqOpen: !!s.req, reqProject: s.req || 'EWM', closeReq: () => this.setState({ req: null }),
+mains: [
+{ num: '01', isEwm: true, isMaas: false, isZliq: false, locked: true, reqName: 'EWM', pw: true, pwHref: 'EWMCase.dc.html', coverStyle: cover('#F2DFB8'), label: 'IBM · ENTERPRISE', title: 'EWM modernization', desc: 'Discovery and early design for a 25-year-old engineering work tracker.', badge: 'UNDER NDA', problem: 'A 25-year-old engineering tool that customers keep comparing with Jira.', found: '11 of 13 stakeholders raised planning without being asked.', role: 'UX Designer, one of three · Aug 2026 – now', hasCase: false, noCase: true, href: 'EWMCase.dc.html' },
+{ num: '02', isEwm: false, isMaas: false, isZliq: true, locked: false, coverStyle: cover('#E4D6FA'), label: 'MOBILE APP', title: 'Zliq', desc: 'An activity-first social app with a women-only space.', badge: 'LIVE PROTOTYPE', problem: 'Apps for meeting strangers lead with faces, and start to feel like dating apps.', found: 'A selfie match proves you\'re real, not that you\'re a woman, so the women-only space had a hole.', role: 'Sole designer, end to end · Aug – Nov 2026', hasCase: true, noCase: false, href: 'ZliqCase.dc.html' },
+{ num: '03', isEwm: false, isMaas: true, isZliq: false, locked: true, reqName: 'MaaS360', pw: true, pwHref: 'MaaSCase.dc.html', coverStyle: cover('#EFCFC3'), label: 'IBM · ENTERPRISE', title: 'MaaS360 onboarding', desc: 'Redesigning setup for IBM\'s device management platform.', badge: 'UNDER NDA', problem: '[as the people using it felt it]', found: '[one finding or metric]', role: '[what I owned] · [timeline]', hasCase: false, noCase: true, href: '#contact' }
+].map((m) => Object.assign({}, m, { req: () => this.setState({ req: m.reqName }), pw: !!m.pw })),
+odd: [
+{ name: 'Hand-tracking instrument', file: 'built with Figma Make', img: '/assets/d1065a71e64a120d0a9a264863c9918b.gif', alt: 'Aayush playing a hand-tracking instrument in front of his webcam', imgStyle: 'display: block; width: 100%; height: 160px; object-fit: cover; object-position: center 40%; border-radius: 14px; background: #3D2C22;' },
+{ name: 'Research summary skill', file: 'IBM Bob skill' },
+{ name: 'Bob-a-thon', file: 'video editor' },
+{ name: 'Ektara', file: 'core team, Gandhinagar studio', img: '/assets/85e55b12e85fec3599651d3ef5962ef1.jpg', alt: 'Aayush presenting at an Ektara session', imgStyle: 'display: block; width: 100%; height: 160px; object-fit: cover; object-position: center 22%; border-radius: 14px; background: #3D2C22;' }
+].map((o) => ({ ...o, noImg: !o.img })),
+menuOpen: s.menuOpen,
+menuClosed: !s.menuOpen,
+burgerLabel: s.menuOpen ? 'Close menu' : 'Open menu',
+toggleMenu: () => this.setState({ menuOpen: !s.menuOpen }),
+closeMenu: () => this.setState({ menuOpen: false }),
+copyLabel: s.copied ? 'Copied ✓' : 'Copy',
+copy: () => { try { if (navigator.clipboard) navigator.clipboard.writeText('aayush.kriti3@gmail.com').catch(() => {}); } catch (e) {} this.setState({ copied: true }); setTimeout(() => this.setState({ copied: false }), 1800); }
+};
+}
+}
+</script>
+</body>
+</html>

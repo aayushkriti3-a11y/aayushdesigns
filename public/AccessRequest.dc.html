@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Request access to an NDA case study</title>
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Kalam:wght@400;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+.arfield{font:inherit;font-size:16px;color:#2B1E16;background:#FFFCF5;border:1.5px solid #CDB9A5;border-radius:10px;padding:11px 12px;width:100%;box-sizing:border-box;min-height:46px}
+.arfield:focus{outline:none;border-color:#2B1E16;box-shadow:0 0 0 3px rgba(237,169,42,.35)}
+.arsend{transition:background-color .15s ease-out}
+.arsend:hover{background:#C0391B !important}
+button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3px}
+</style>
+</helmet>
+<div role="dialog" aria-modal="true" aria-labelledby="ar-title" style="position: fixed; inset: 0; z-index: 60; background: rgba(43,30,22,.55); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box; font-family: 'Instrument Sans', system-ui, sans-serif; color: #2B1E16">
+<div style="width: 100%; max-width: 460px; max-height: calc(100vh - 32px); overflow: auto; background: #FFFAF2; border: 1.5px solid #2B1E16; border-radius: 6px; box-shadow: 0 2px 0 #EDE1CC, 0 24px 60px rgba(0,0,0,.3); padding: 24px 24px 22px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; border-bottom: 2px dashed #CDB9A5; padding-bottom: 12px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .1em; color: #6B5242">ACCESS REQUEST · UNDER NDA</span>
+<button type="button" onClick="{{ close }}" aria-label="Close" style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 999px; border: 1px solid #CDB9A5; background: transparent; color: #2B1E16; cursor: pointer; font: inherit; font-size: 18px; line-height: 1">×</button>
+</div>
+
+<sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h2 id="ar-title" style="margin: 0; font-size: 26px; line-height: 1.15; font-weight: 700; letter-spacing: -0.02em">Request the {{ project }} recipe</h2>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #6B5242">This case study is under NDA. Tell me a little about you and I'll reply with the password.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<label style="display: flex; flex-direction: column; gap: 5px; font-size: 13px; font-weight: 600">Your name<input class="arfield" type="text" autocomplete="name" value="{{ name }}" onInput="{{ setName }}" aria-invalid="{{ nameBad }}"></label>
+<label style="display: flex; flex-direction: column; gap: 5px; font-size: 13px; font-weight: 600">Company<input class="arfield" type="text" autocomplete="organization" value="{{ company }}" onInput="{{ setCompany }}" aria-invalid="{{ companyBad }}"></label>
+<label style="display: flex; flex-direction: column; gap: 5px; font-size: 13px; font-weight: 600"><span>Your role <span style="font-weight: 400; color: #6B5242">(optional)</span></span><input class="arfield" type="text" autocomplete="organization-title" value="{{ role }}" onInput="{{ setRole }}"></label>
+<label style="display: flex; flex-direction: column; gap: 5px; font-size: 13px; font-weight: 600"><span>Why you'd like to see it <span style="font-weight: 400; color: #6B5242">(optional)</span></span><textarea class="arfield" rows="3" value="{{ why }}" onInput="{{ setWhy }}" style="resize: vertical"></textarea></label>
+</div>
+<sc-if value="{{ showErr }}" hint-placeholder-val="{{ false }}">
+<p role="alert" style="margin: 0; font-size: 14px; line-height: 20px; color: #A32F15; font-weight: 600">Add your name and company so I know who's asking.</p>
+</sc-if>
+<sc-if value="{{ valid }}" hint-placeholder-val="{{ false }}">
+<a class="arsend" href="{{ mailto }}" onClick="{{ markSent }}" style="display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 999px; background: #2B1E16; color: #FFFAF2; font-size: 16px; font-weight: 600; text-decoration: none">Send request</a>
+</sc-if>
+<sc-if value="{{ invalid }}" hint-placeholder-val="{{ true }}">
+<button type="button" onClick="{{ tryInvalid }}" style="min-height: 50px; border-radius: 999px; border: 0; background: #8F7D6E; color: #FFFAF2; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer">Send request</button>
+</sc-if>
+<span style="font-size: 13px; line-height: 19px; color: #6B5242">This opens your email app with the request filled in. Or write to <a href="mailto:aayush.kriti3@gmail.com" style="color: #2B1E16; font-weight: 600">aayush.kriti3@gmail.com</a>.</span>
+</sc-if>
+
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+<div role="status" style="display: flex; flex-direction: column; gap: 10px; padding: 8px 0 4px">
+<h2 style="margin: 0; font-size: 26px; line-height: 1.15; font-weight: 700; letter-spacing: -0.02em">Order's on the pass.</h2>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #6B5242">Your email app should have opened with the request ready. Hit send there, and I'll reply with the password.</p>
+<span style="font-family: 'Kalam', cursive; font-size: 20px; color: #C0391B">thanks for the interest!</span>
+<button type="button" onClick="{{ close }}" style="margin-top: 6px; align-self: flex-start; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1.5px solid #2B1E16; background: transparent; color: #2B1E16; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer">Close</button>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"project":{"editor":"text","default":"EWM"},"onClose":{"editor":null},"$preview":{"width":520,"height":760}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { name: '', company: '', role: '', why: '', tried: false, sent: false };
+}
+renderVals() {
+const s = this.state;
+const project = this.props.project ?? 'EWM';
+const valid = s.name.trim().length > 0 && s.company.trim().length > 0;
+const body = 'Hi Aayush,\n\nI would like access to the ' + project + ' case study on your portfolio.\n\nName: ' + s.name.trim() + '\nCompany: ' + s.company.trim() + (s.role.trim() ? '\nRole: ' + s.role.trim() : '') + (s.why.trim() ? '\n\nWhy: ' + s.why.trim() : '') + '\n\nThanks!';
+const close = () => { this.setState({ sent: false, tried: false }); if (typeof this.props.onClose === 'function') this.props.onClose(); };
+return {
+project,
+name: s.name, company: s.company, role: s.role, why: s.why,
+setName: (e) => this.setState({ name: e.target.value }),
+setCompany: (e) => this.setState({ company: e.target.value }),
+setRole: (e) => this.setState({ role: e.target.value }),
+setWhy: (e) => this.setState({ why: e.target.value }),
+valid, invalid: !valid,
+nameBad: s.tried && !s.name.trim() ? 'true' : 'false',
+companyBad: s.tried && !s.company.trim() ? 'true' : 'false',
+showErr: s.tried && !valid,
+tryInvalid: () => this.setState({ tried: true }),
+mailto: 'mailto:aayush.kriti3@gmail.com?subject=' + encodeURIComponent('Access request: ' + project + ' case study') + '&body=' + encodeURIComponent(body),
+markSent: () => { setTimeout(() => this.setState({ sent: true }), 300); },
+sent: s.sent, notSent: !s.sent,
+close
+};
+}
+}
+</script>
+</body>
+</html>
