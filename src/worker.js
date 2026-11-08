@@ -18,10 +18,12 @@ function withHeaders(res, headers) {
 
 async function unlock(request, env) {
   const form = await request.formData();
-  const typed = String(form.get('password') || '').replace(/\s+/g, '').toLowerCase();
+  // Forgiving match: ignores case, spaces and punctuation that phone keyboards add (e.g. "Thanks for coming.").
+  const norm = (v) => String(v || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const typed = norm(form.get('password'));
   let next = String(form.get('next') || '/');
   if (!PAGE_PATH.test(next)) next = '/';
-  const pass = env.NDA_PASSWORD ? env.NDA_PASSWORD.replace(/\s+/g, '').toLowerCase() : '';
+  const pass = norm(env.NDA_PASSWORD);
   if (!pass || typed !== pass) {
     return Response.redirect(new URL(next + '?wrong=1', request.url).toString(), 303);
   }
@@ -38,6 +40,13 @@ async function unlock(request, env) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    // Setup check: says whether the password secret reaches the Worker. Never reveals the password.
+    if (url.pathname === '/__nda-status') {
+      const set = typeof env.NDA_PASSWORD === 'string' && env.NDA_PASSWORD.length > 0;
+      const shape = set ? env.NDA_PASSWORD.length + ' characters' + (/^\s|\s$/.test(env.NDA_PASSWORD) ? ', has extra spaces at the start or end' : '') + (/["']/.test(env.NDA_PASSWORD) ? ', contains quote marks' : '') : 'missing';
+      return new Response('NDA password secret: ' + (set ? 'set (' + shape + ')' : 'NOT SET') + '\n', { headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' } });
+    }
 
     if (url.pathname === '/unlock') {
       if (request.method === 'POST') return unlock(request, env);
