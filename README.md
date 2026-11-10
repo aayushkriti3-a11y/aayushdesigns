@@ -13,3 +13,7 @@ Aayush Kriti's portfolio, the Chef's menu.
 - Custom domains: aayushdesigns.com and www.aayushdesigns.com, under Domains.
 
 The design source lives on the Claude canvas. Changes there are rebuilt into `public/` and pushed here, and Cloudflare redeploys on every push.
+
+## Drafts
+`drafts/` holds earlier versions of pages for reference. Nothing in it is served.
+- `drafts/home-v1.dc.html`: the previous home page (before "table service").

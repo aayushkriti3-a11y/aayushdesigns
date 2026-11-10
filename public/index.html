@@ -18,38 +18,137 @@
 <style>
 body{margin:0}
 a{color:#2B1E16}a:hover{color:#3E6B2F}
-.navlink{text-decoration:none;position:relative;padding:6px 0}
-.navlink:hover{color:#C0391B}
-.btn{transition:transform .15s ease-out,background-color .15s ease-out}
-.btn:hover{transform:translateY(-1px)}
+button:focus-visible,a:focus-visible{outline:2px solid #C0391B;outline-offset:3px}
+.navlink{text-decoration:none;padding:6px 0}.navlink:hover{color:#C0391B}
+.btn{transition:transform .15s ease-out,background-color .15s ease-out,color .15s ease-out}.btn:hover{transform:translateY(-1px)}
 .btn-solid:hover{background:#C0391B !important;color:#FFFAF2 !important}
 .btn-ghost:hover{background:#2B1E16 !important;color:#FFFAF2 !important}
-.card{transition:transform .25s cubic-bezier(.2,0,0,1),box-shadow .25s cubic-bezier(.2,0,0,1)}
-.card:hover{transform:translateY(-4px);box-shadow:0 1px 0 #DCCDB6,0 18px 40px rgba(43,30,22,.10)}
-.card:hover .cover-art{transform:scale(1.03) rotate(-0.5deg)}
-.cover-art{transition:transform .4s cubic-bezier(.2,0,0,1)}
-.pola{transition:transform .25s cubic-bezier(.2,0,0,1)}
-.pola:hover{transform:rotate(0deg) translateY(-6px) !important}
-.side:hover .side-img{transform:translateY(-3px)}
-.side-img{transition:transform .2s ease-out}
-.trail{transition:stroke-dashoffset .35s ease-out}
-.pan{transition:top .45s cubic-bezier(.2,0,0,1),left .45s cubic-bezier(.2,0,0,1)}
-.step{transition:color .3s ease-out}
-.qlabel{transition:opacity .3s ease-out}
-.dot{animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3px}
 .burger{display:none}.mobilemenu{display:none}
+.dot{animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* layout: a fixed menu card on the left, courses on the right */
+.wrap{max-width:1200px;margin:0 auto;padding-left:clamp(20px,5vw,56px);padding-right:clamp(20px,5vw,56px);box-sizing:border-box}
+.col{box-sizing:border-box}
+@media (min-width: 1120px){.col{padding-left:296px}}
+.csec{padding:96px 0 32px;scroll-margin-top:88px}
+
+/* the menu cover (hero) */
+.cover{background:#FFFAF2;border:1.5px solid #2B1E16;border-radius:4px;box-shadow:inset 0 0 0 9px #FFFAF2,inset 0 0 0 10.5px #2B1E16,0 2px 0 #EDE1CC,0 30px 60px rgba(43,30,22,.12);padding:clamp(28px,5vw,72px)}
+.coverTop{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.plate{position:relative;width:min(100%,340px);aspect-ratio:1;margin:0 auto;border-radius:999px;background:#FFFCF5;box-shadow:0 0 0 1.5px #2B1E16,0 0 0 16px #F6EFE3,0 0 0 17.5px #DCCDB6,0 26px 50px rgba(43,30,22,.16);padding:14px;box-sizing:border-box;transition:transform .5s cubic-bezier(.2,0,0,1)}
+.plate:hover{transform:rotate(-6deg)}
+.plate img{position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);object-fit:cover;object-position:center 30%;border-radius:999px}
+.menuhead{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.mlist{list-style:none;margin:0 auto;padding:0;max-width:680px;display:flex;flex-direction:column}
+.mline{display:flex;align-items:baseline;gap:14px;padding:14px 6px;text-decoration:none;border-radius:8px;transition:background-color .2s ease-out}
+.mline:hover{background:#F6EFE3;color:#2B1E16}.mline:hover .mname{color:#C0391B}
+.mnum{font-family:'IBM Plex Mono',monospace;font-size:13px;color:#957F6E;letter-spacing:.06em}
+.mname{font-size:clamp(20px,2.2vw,26px);font-weight:700;letter-spacing:-0.015em;transition:color .2s ease-out;white-space:nowrap}
+.mlead{flex:1;min-width:24px;border-bottom:2px dotted #CDB9A5;transform:translateY(-6px)}
+.mnote{font-family:'Kalam',cursive;font-size:19px;color:#6B5242;white-space:nowrap}
+
+/* v1 hero */
 .menustrip{display:grid;grid-template-columns:1.3fr repeat(5,minmax(0,1fr))}.mhead{border-right:1.5px dashed #CDB9A5}.course+.course{border-left:1px dotted #CDB9A5}
 @media (max-width: 900px){.menustrip{grid-template-columns:repeat(2,minmax(0,1fr))}.mhead{grid-column:1 / -1;border-right:0;border-bottom:1.5px dashed #CDB9A5}.course{border-left:0 !important;border-top:1px dotted #CDB9A5}.course:nth-child(2),.course:nth-child(3){border-top:0}.course:nth-child(odd){border-left:1px dotted #CDB9A5 !important}.course:last-child{grid-column:1 / -1;border-left:0 !important}}
-.inpan{background:#2B1E16 radial-gradient(circle at 50% 0, #33241B 0, #2B1E16 60%) !important}
-.inpan #about{color:#F6EFE3}
-.inpan #about [style*="color: #6B5242"]{color:#CDB9A5 !important}
-.inpan #about [style*="color: #C0391B"]{color:#EDA92A !important}
-.inpan #about ol{border-top-color:#5A463A !important}
-.inpan #about li > span[aria-hidden]{border-color:#F6EFE3 !important}
-.inpan footer{border-top-color:#5A463A !important;color:#CDB9A5 !important}
+.course{transition:background-color .2s ease-out}.course:hover{background:#F6EFE3}.course:hover .cname{color:#C0391B}
+#top .pola{transition:transform .25s cubic-bezier(.2,0,0,1)}
+
+#work.csec{padding-top:24px}
+/* the fixed menu card */
+.rail{display:none}
+@media (min-width: 1120px){.rail{display:block;position:fixed;top:112px;left:max(clamp(20px,5vw,56px),calc((100vw - 1200px) / 2 + 56px));width:232px;z-index:5;transition:opacity .3s ease-out,transform .3s ease-out}}
+.railcard{background:#FFFAF2;border:1.5px solid #2B1E16;border-radius:4px;box-shadow:inset 0 0 0 5px #FFFAF2,inset 0 0 0 6px #CDB9A5,0 18px 40px rgba(43,30,22,.16);padding:22px 20px 18px}
+.rl{display:flex;align-items:center;gap:12px;padding:9px 6px;border-radius:8px;text-decoration:none;color:#2B1E16;position:relative}
+.rl:hover{background:#F6EFE3;color:#2B1E16}
+.rlname{font-size:15px;line-height:20px;font-weight:600;transition:color .25s ease-out}
+
+/* the slim course ticker on tablets and phones */
+.ticker{display:none}
+@media (max-width: 1119px){.ticker{display:flex}}
+
+/* course headers: read like the next line on the menu, not a full stop */
+.chead{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}
+.ckick{display:flex;align-items:center;gap:12px;min-width:0}
+.cbadge{width:30px;height:30px;flex-shrink:0;border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500}
+.clead{flex:1;min-width:24px;border-bottom:2px dotted}
+.crow{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px}
+.ctitle{margin:0;font-size:clamp(36px,4.4vw,60px);line-height:1;font-weight:700;letter-spacing:-0.03em;text-wrap:balance}
+.cnote{font-family:'Kalam',cursive;font-size:clamp(19px,1.8vw,23px);line-height:1.3}
+.crow .btn{margin-left:auto;align-self:center}
+/* course 01: dishes listed like a menu */
+.dish{display:grid;grid-template-columns:120px minmax(0,1fr);gap:clamp(20px,3.5vw,44px);align-items:center;padding:36px 0;border-top:2px dotted #CDB9A5}
+.dish:last-child{border-bottom:2px dotted #CDB9A5}
+.dplate{width:120px;height:120px;border-radius:999px;position:relative;transition:transform .5s cubic-bezier(.2,0,0,1)}
+.dish:hover .dplate{transform:rotate(-12deg) scale(1.03)}
+
+/* the full-menu card: an à la carte menu you can open */
+.fullmenu{margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(28px,3.6vw,44px);background:#FFFAF2;color:#2B1E16;border:1.5px solid #2B1E16;border-radius:4px;text-decoration:none;box-shadow:inset 0 0 0 7px #FFFAF2,inset 0 0 0 8.5px #CDB9A5,0 2px 0 #EDE1CC,0 22px 44px rgba(43,30,22,.10);transition:transform .25s cubic-bezier(.2,0,0,1),box-shadow .25s cubic-bezier(.2,0,0,1)}
+.fullmenu:hover{color:#2B1E16;transform:translateY(-3px);box-shadow:inset 0 0 0 7px #FFFAF2,inset 0 0 0 8.5px #CDB9A5,0 2px 0 #EDE1CC,0 30px 56px rgba(43,30,22,.16)}
+.fmleft{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0}
+.fmbtn{margin-top:14px;display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:600;padding:12px 22px;background:#2B1E16;color:#FFFAF2;border-radius:999px;transition:background-color .2s ease-out}
+.fmbtn svg{transition:transform .25s cubic-bezier(.2,0,0,1)}
+.fullmenu:hover .fmbtn{background:#C0391B}.fullmenu:hover .fmbtn svg{transform:translateX(3px)}
+.fmlist{list-style:none;margin:0;padding:0 0 0 clamp(20px,3vw,40px);border-left:1.5px dashed #CDB9A5;display:flex;flex-direction:column}
+.fmline{display:flex;align-items:baseline;gap:12px;padding:12px 0}
+.fmline+.fmline{border-top:1px solid #EDE1CC}
+.fmnum{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#957F6E}
+.fmname{font-size:clamp(17px,1.6vw,20px);font-weight:700;letter-spacing:-0.01em;white-space:nowrap}
+.fmlead{flex:1;min-width:16px;border-bottom:2px dotted #CDB9A5;transform:translateY(-5px)}
+.fmtag{font-family:'Kalam',cursive;font-size:17px;color:#6B5242;white-space:nowrap}
+.fmline:last-child .fmtag{color:#C0391B}
+@media (max-width: 760px){.fullmenu{grid-template-columns:1fr;margin-top:32px}.fmlist{padding:16px 0 0;border-left:0;border-top:1.5px dashed #CDB9A5}.fmleft{order:0}}
+@media (prefers-reduced-motion: reduce){.fullmenu,.fmbtn,.fmbtn svg{transition:none}.fullmenu:hover,.fullmenu:hover .fmbtn svg{transform:none}}
+/* course 02: the recipe card */
+.recipe{background:#FFFAF2;border:1px solid #DCCDB6;border-radius:6px;box-shadow:0 2px 0 #EDE1CC,0 22px 44px rgba(43,30,22,.10);background-image:linear-gradient(90deg,transparent 63px,rgba(192,57,27,.35) 63px,rgba(192,57,27,.35) 65px,transparent 65px);overflow:hidden}
+.rstep{border-top:1px solid #E8DCC8}
+.rbtn{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:64px minmax(0,1fr) auto;align-items:center;gap:0 20px;padding:22px 24px 22px 0}
+.rbtn:focus-visible{outline:2px solid #C0391B;outline-offset:-4px}
+.rbtn:hover .rtitle{color:#C0391B}
+.rtitle{transition:color .2s ease-out}
+
+/* fit the shared pieces to the course column */
+#kitchen .polas{margin:0 !important}
+.kbleed .polas .pola{width:280px !important}
+#tools .toolgrid{grid-template-columns:repeat(3,minmax(0,1fr)) !important}
+#about ol{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:32px !important}
+@media (max-width: 760px){#about ol{grid-template-columns:1fr !important;gap:28px !important}}
+/* course 04: the other half, told big */
+.kitchen{position:relative}
+.kitchen::before{content:"";position:absolute;left:50%;top:0;width:min(1100px,100vw);height:900px;transform:translateX(-50%);background:radial-gradient(ellipse 55% 45% at 50% 30%,rgba(237,169,42,.13),transparent 70%);pointer-events:none}
+.kitchen > *{position:relative}
+.kintro{margin:8px 0 24px;font-family:'Kalam',cursive;font-size:clamp(24px,2.6vw,34px);color:#CDB9A5}
+.acts{display:flex;flex-direction:column}
+.act{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:clamp(24px,5vw,72px);padding:clamp(28px,4vw,56px) 0;border-top:1px solid #4A382D;transition:opacity .9s cubic-bezier(.2,0,0,1),transform .9s cubic-bezier(.2,0,0,1)}
+.act.rev{grid-template-columns:auto minmax(0,1fr)}
+.act.rev .actpic{order:-1}
+.act.rev .actwords{text-align:right;align-items:flex-end}
+.actwords{display:flex;flex-direction:column;gap:10px;min-width:0}
+.actno{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;color:#957F6E}
+.actword{font-size:clamp(64px,10.5vw,164px);line-height:.88;font-weight:700;letter-spacing:-0.055em;color:#F6EFE3;text-wrap:balance}
+.actcap{font-family:'Kalam',cursive;font-size:clamp(20px,2vw,26px);color:#CDB9A5}
+.actpic{margin:0;width:clamp(170px,20vw,250px);background:#FFFCF5;padding:10px 10px 14px;box-shadow:0 24px 50px rgba(0,0,0,.45);transition:transform .4s cubic-bezier(.2,0,0,1)}
+.actpic:hover{transform:rotate(0deg) scale(1.03) !important}
+.actpic img{display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover}
+.actpic figcaption{margin-top:8px;font-family:'Kalam',cursive;font-size:16px;color:#3E6B2F}
+.kbleed{margin:clamp(40px,6vw,72px) calc(50% - 50vw) 24px;overflow:hidden}
+.kbleed .polas{-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent) !important;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent) !important}
+@media (max-width: 640px){
+.act,.act.rev{grid-template-columns:1fr;gap:18px}
+.act.rev .actpic{order:0}
+.act.rev .actwords{text-align:left;align-items:flex-start}
+.actpic{width:170px;justify-self:end}
+.act.rev .actpic{justify-self:start}
+}
+@media (prefers-reduced-motion: reduce){.act,.actpic{transition:none}}
+/* the dark half */
+.inpan{background:#2B1E16 radial-gradient(ellipse at 50% 0,#3A2A20 0,#2B1E16 55%);color:#F6EFE3}
+.inpan a{color:#F6EFE3}.inpan a:hover{color:#EDA92A}
+.inpan .billcard a{color:#2B1E16}.inpan .billcard a:hover{color:#3E6B2F}
 .inpan .billcard{color:#2B1E16;border-color:#FFFAF2 !important;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.inpan .billcard .btn-solid{color:#FFFAF2}
+.inpan footer{border-top-color:#5A463A !important;color:#CDB9A5 !important}
+.lamp .s{transform-box:fill-box;transform-origin:50% 100%;animation:lgsteam 2.6s ease-in-out infinite}.lamp .s2{animation-delay:.6s}.lamp .s3{animation-delay:1.2s}
+
 .tool .toolcard{transform-origin:50% -14px;transition:transform .35s cubic-bezier(.2,0,0,1),border-color .2s ease-out}
 .tool:hover .toolcard{transform:rotate(-4deg);border-color:#2B1E16}
 .tool:nth-child(even):hover .toolcard{transform:rotate(4deg)}
@@ -59,26 +158,9 @@ button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3p
 .polas:hover .polatrack,.polas:focus-within .polatrack{animation-play-state:paused}
 @keyframes polaroll{from{transform:translateX(0)}to{transform:translateX(calc(-50% - var(--g) / 2))}}
 @media (prefers-reduced-motion: reduce){.polatrack{animation:none}.polas{overflow-x:auto !important}}
-#tools{scroll-margin-top:104px}
-.course{transition:background-color .2s ease-out}.course:hover{background:#F6EFE3}.course:hover .cname{color:#C0391B}
-@media (max-width: 760px){.pathcol{display:none !important}.navlinks{display:none !important}.burger{display:flex !important}.mobilemenu{display:flex !important}.cookgap{gap:0 !important}}
-@media (max-width: 640px){
-#work{padding-top:64px !important;padding-bottom:72px !important;gap:32px !important}
-#cook{padding-top:64px !important;padding-bottom:56px !important;gap:28px !important}
-.stepli{min-height:0 !important;padding-bottom:28px}
-.zoomsec{height:1500px !important}
-#kitchen{padding-top:56px !important;padding-bottom:80px !important;gap:40px !important}
-.polatrack{--g:20px}
-.polas .pola{width:176px !important;padding:8px 8px 10px !important}
-.polas .pola figcaption{font-size:14px !important;margin-top:6px !important}
-#about{padding-top:72px !important;padding-bottom:64px !important;gap:36px !important}
-#about ol{gap:28px !important}
-#contact{padding-bottom:64px !important}
-.billcard{padding:26px 20px !important;gap:32px !important;border-radius:22px !important}
-.mailpill{gap:10px !important;flex-wrap:wrap;border-radius:18px !important;padding:8px 8px 8px 16px !important}
-.mailpill a{font-size:15px !important;overflow-wrap:normal !important;white-space:nowrap}
-}
-@media (prefers-reduced-motion: reduce){.btn,.card,.cover-art,.pola,.side-img,.trail,.pan,.step,.qlabel{transition:none}.dot{animation:none}.card:hover,.pola:hover,.btn:hover{transform:none !important}.card:hover .cover-art{transform:none}}
+.polatrack{--g:40px;gap:var(--g);animation:polaroll 48s linear infinite}
+.pola{transition:transform .25s cubic-bezier(.2,0,0,1)}.pola:hover{transform:rotate(0deg) translateY(-6px) !important}
+.side:hover .side-img{transform:translateY(-3px)}.side-img{transition:transform .2s ease-out}
 .logo{position:relative}
 .logo,.logo:hover{color:#2B1E16}
 .logo .steam{transform-box:fill-box;transform-origin:50% 100%;animation:lgsteam 2.4s ease-in-out infinite}
@@ -96,25 +178,52 @@ button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3p
 .logotip::before{content:"";position:absolute;left:22px;top:-6px;width:12px;height:12px;background:#2B1E16;transform:rotate(45deg);border-radius:2px}
 @media (hover: hover) and (pointer: fine){.logo:hover .logotip,.logo:focus-visible .logotip{opacity:1;transform:translateY(0) rotate(-2deg)}}
 @media (prefers-reduced-motion: reduce){.logo .steam,.logo .panbody,.logo .pop{animation:none}.logo .pop{opacity:0}.logotip{transition:none}}
+
+@media (max-width: 860px){
+.navlinks{display:none !important}.burger{display:flex !important}.mobilemenu{display:flex !important}
+.coverTop{grid-template-columns:1fr}
+.plate{width:min(78%,300px)}
+}
+@media (max-width: 640px){
+.csec{padding:64px 0 16px}
+.chead{margin-bottom:28px;gap:10px}.crow .btn{margin-left:0}
+.dish{grid-template-columns:68px minmax(0,1fr);gap:18px;align-items:start;padding:28px 0}
+.dplate{width:68px;height:68px}
+.mnote{display:none}
+.mline{padding:12px 4px}
+.recipe{background-image:linear-gradient(90deg,transparent 55px,rgba(192,57,27,.35) 55px,rgba(192,57,27,.35) 57px,transparent 57px)}
+.rbtn{grid-template-columns:56px minmax(0,1fr);gap:0 18px;padding:18px 16px 18px 0}
+.rbtn > span:first-child{margin-left:11px !important}
+.rq{display:none !important}
+.rbody{padding-left:74px !important;padding-right:16px !important}
+.rhead{padding-left:74px !important;padding-right:16px !important}
+#tools .toolgrid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:22px 12px !important}
+.polatrack{--g:20px}
+.polas .pola{width:176px !important;padding:8px 8px 10px !important}
+.polas .pola figcaption{font-size:14px !important;margin-top:6px !important}
+.billcard{padding:26px 20px !important;gap:32px !important;border-radius:22px !important}
+.mailpill{gap:10px !important;flex-wrap:wrap;border-radius:18px !important;padding:8px 8px 8px 16px !important}
+.mailpill a{font-size:15px !important;overflow-wrap:normal !important;white-space:nowrap}
+}
+@media (prefers-reduced-motion: reduce){.btn,.plate,.dplate,.pola,.side-img,.rail,.rtitle{transition:none}.dot,.lamp .s,.polatrack{animation:none}.polas{overflow-x:auto !important}.plate:hover,.dish:hover .dplate,.pola:hover,.btn:hover{transform:none !important}}
 </style>
 </helmet>
 <div style="background: #F6EFE3; color: #2B1E16; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 17px; line-height: 1.55">
 
 <header style="position: sticky; top: 0; z-index: 10; background: #F6EFE3; border-bottom: 1px solid #E8DCC8">
-<div style="max-width: 1040px; margin: 0 auto; padding: 18px clamp(24px, 7vw, 120px); display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center; justify-content: space-between">
+<div class="wrap" style="padding-top: 18px; padding-bottom: 18px; display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center; justify-content: space-between">
 <a class="logo" href="#top" aria-label="Aayush Kriti, home" style="display: flex; align-items: flex-end; gap: 10px; text-decoration: none">
 <svg width="40" height="36" viewBox="0 0 44 40" fill="none" stroke="#2B1E16" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="overflow: visible"><path class="steam s1" d="M14 4c-2 3 2 5 0 8" stroke="#C0391B"></path><path class="steam s2" d="M21 2c-2 3 2 5 0 8" stroke="#C0391B"></path><path class="steam s3" d="M28 4c-2 3 2 5 0 8" stroke="#C0391B"></path><circle class="pop pl" cx="12" cy="17" r="1.4" fill="#EDA92A" stroke="none"></circle><circle class="pop pr" cx="28" cy="17" r="1.2" fill="#EDA92A" stroke="none"></circle><g class="panbody"><path d="M6 20h28v8a8 8 0 0 1-8 8H14a8 8 0 0 1-8-8z"></path><path d="M34 22h8"></path></g></svg>
 <span style="font-family: 'Kalam', cursive; font-size: 28px; line-height: 1; font-weight: 700">aayush</span>
 <span class="logotip" aria-hidden="true">hi! something's always cooking here</span>
 </a>
-<nav class="navlinks" aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 8px 32px; align-items: center; font-size: 16px; font-weight: 500">
+<nav class="navlinks" aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 8px 30px; align-items: center; font-size: 16px; font-weight: 500">
 <a class="navlink" href="#work">Work</a>
 <a class="navlink" href="#cook">How I cook</a>
 <a class="navlink" href="#tools">Tools</a>
 <a class="navlink" href="#kitchen">Kitchen</a>
 <a class="navlink" href="#about">About</a>
-<a class="navlink" href="#contact">Contact</a>
-<a class="btn btn-ghost" href="/assets/5e3463ffe5e8b1543dea892686f828e1.pdf" download="Aayush_Kriti_Resume.pdf" target="_blank" rel="noopener" aria-label="Download resume (PDF)" style="font-weight: 600; padding: 9px 18px; border: 1.5px solid #2B1E16; border-radius: 999px; text-decoration: none">Resume ↓</a>
+<a class="btn btn-solid" href="#contact" style="font-weight: 600; padding: 9px 18px; background: #2B1E16; color: #FFFAF2; border-radius: 999px; text-decoration: none">Ask for the bill</a>
 </nav>
 <button type="button" class="burger" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-label="{{ burgerLabel }}" style="width: 48px; height: 48px; align-items: center; justify-content: center; border: 1.5px solid #2B1E16; border-radius: 999px; background: transparent; color: #2B1E16; cursor: pointer; padding: 0">
 <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
@@ -125,19 +234,47 @@ button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3p
 </sc-if>
 </button>
 <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-<nav class="mobilemenu" aria-label="Main, mobile" style="flex-basis: 100%; flex-direction: column; gap: 2px; padding: 8px 0 12px; border-top: 1px solid #DCCDB6; font-size: 22px; font-weight: 600">
-<a href="#work" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0">Work</a>
-<a href="#cook" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0">How I cook</a>
-<a href="#tools" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0">Tools</a>
-<a href="#kitchen" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0">Kitchen</a>
-<a href="#about" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0">About</a>
-<a href="#contact" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0">Contact</a>
-<a href="/assets/5e3463ffe5e8b1543dea892686f828e1.pdf" download="Aayush_Kriti_Resume.pdf" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0">Resume ↓</a>
-<span style="font-family: 'Kalam', cursive; font-size: 18px; font-weight: 400; color: #C0391B; padding-top: 8px">pick a course</span>
+<nav class="mobilemenu" aria-label="Main, mobile" style="flex-basis: 100%; flex-direction: column; gap: 2px; padding: 8px 0 12px; border-top: 1px solid #DCCDB6">
+<sc-for list="{{ courses }}" as="c" hint-placeholder-count="5">
+<a href="{{ c.href }}" onClick="{{ closeMenu }}" style="display: flex; align-items: baseline; gap: 12px; text-decoration: none; padding: 12px 0"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #957F6E">{{ c.n }}</span><span style="font-size: 22px; font-weight: 600">{{ c.name }}</span></a>
+</sc-for>
+<a href="#contact" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0; font-size: 22px; font-weight: 600; color: #C0391B">Ask for the bill</a>
+<a href="/assets/5e3463ffe5e8b1543dea892686f828e1.pdf" download="Aayush_Kriti_Resume.pdf" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="text-decoration: none; padding: 12px 0; font-size: 18px; font-weight: 600">Resume ↓</a>
 </nav>
 </sc-if>
 </div>
+<div class="ticker" style="{{ tickerStyle }}">
+<div class="wrap" style="width: 100%; padding-top: 10px; padding-bottom: 12px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: baseline; gap: 10px; min-width: 0">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .08em; color: #957F6E; flex-shrink: 0">COURSE {{ activeNum }} / 05</span>
+<span style="font-size: 15px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ activeName }}</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px" aria-hidden="true">
+<sc-for list="{{ courses }}" as="c" hint-placeholder-count="5">
+<a href="{{ c.href }}" tabindex="-1" style="{{ c.segStyle }}"></a>
+</sc-for>
+</div>
+</div>
+</div>
 </header>
+
+<nav class="rail" aria-label="Courses" style="{{ railStyle }}">
+<div class="railcard">
+<span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: .14em; color: #6B5242">TONIGHT'S MENU</span>
+<span style="display: block; margin-top: 2px; font-family: 'Shrikhand', Georgia, serif; font-size: 24px; line-height: 1.2; color: #C0391B">Chef's menu</span>
+<ol style="list-style: none; margin: 14px 0 0; padding: 0; position: relative">
+<span aria-hidden="true" style="position: absolute; left: 19px; top: 18px; bottom: 18px; width: 2px; background: #E8DCC8"></span>
+<span aria-hidden="true" style="{{ railFill }}"></span>
+<sc-for list="{{ courses }}" as="c" hint-placeholder-count="5">
+<li><a class="rl" href="{{ c.href }}" aria-current="{{ c.current }}"><span style="{{ c.dotStyle }}">{{ c.n }}</span><span style="display: flex; flex-direction: column; min-width: 0"><span class="rlname" style="{{ c.nameStyle }}">{{ c.name }}</span><span style="font-family: 'Kalam', cursive; font-size: 14px; line-height: 17px; color: #957F6E">{{ c.note }}</span></span></a></li>
+</sc-for>
+</ol>
+<div style="margin-top: 14px; padding-top: 14px; border-top: 1.5px dashed #CDB9A5; display: flex; flex-direction: column; gap: 10px">
+<a class="btn btn-solid" href="#contact" style="display: flex; justify-content: center; font-size: 15px; font-weight: 600; padding: 11px 16px; background: #2B1E16; color: #FFFAF2; border-radius: 999px; text-decoration: none">Ask for the bill</a>
+<a href="/assets/5e3463ffe5e8b1543dea892686f828e1.pdf" download="Aayush_Kriti_Resume.pdf" target="_blank" rel="noopener" style="text-align: center; font-size: 14px; font-weight: 600; color: #6B5242">Resume (PDF) ↓</a>
+</div>
+</div>
+</nav>
 
 <section id="top" style="max-width: 1040px; margin: 0 auto; padding: 80px clamp(24px, 7vw, 120px) 120px; display: flex; flex-wrap: wrap; gap: 64px 72px; align-items: center">
 <div style="flex: 3 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 32px">
@@ -152,7 +289,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3p
 <figcaption style="margin-top: 14px; text-align: center; font-family: 'Kalam', cursive; font-size: 22px; color: #C0391B">asks AI dumb questions, on purpose</figcaption>
 </figure>
 </div>
-<nav class="menustrip" aria-label="Chef's menu" style="flex-basis: 100%; background: #FFFAF2; border: 1.5px solid #2B1E16; border-radius: 6px; box-shadow: 0 2px 0 #EDE1CC, 0 18px 36px rgba(43,30,22,.10); overflow: hidden">
+<nav class="menustrip" ref="{{ setMenu }}" aria-label="Chef's menu" style="flex-basis: 100%; background: #FFFAF2; border: 1.5px solid #2B1E16; border-radius: 6px; box-shadow: 0 2px 0 #EDE1CC, 0 18px 36px rgba(43,30,22,.10); overflow: hidden">
 <div class="mhead" style="padding: 22px 26px; display: flex; flex-direction: column; justify-content: center; gap: 2px">
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; color: #6B5242">WELCOME TO MY KITCHEN</span>
 <span style="font-family: 'Shrikhand', Georgia, serif; font-size: 28px; line-height: 1.15; color: #C0391B">Chef's menu</span>
@@ -166,84 +303,100 @@ button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3p
 </nav>
 </section>
 
-<section id="work" style="max-width: 1040px; margin: 0 auto; padding: 96px clamp(24px, 7vw, 120px) 128px; display: flex; flex-direction: column; gap: 56px">
-<div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px 24px">
-<div style="display: flex; flex-direction: column; gap: 10px">
-<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #6B5242">COURSE 01</span>
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px">
-<h2 style="margin: 0; font-size: clamp(48px, 6.4vw, 88px); line-height: 0.95; font-weight: 700; letter-spacing: -0.035em">Mains</h2>
-<span style="font-family: 'Kalam', cursive; font-size: 24px; color: #C0391B">three dishes, two under NDA</span>
+<div class="wrap"><div class="col">
+
+<section id="work" class="csec">
+<div class="chead">
+<div class="ckick">
+<span class="cbadge" aria-hidden="true" style="background: #2B1E16; color: #FFFAF2;">01</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .12em; color: #6B5242; white-space: nowrap">COURSE 01 · THE WORK</span>
+<span class="clead" aria-hidden="true" style="border-bottom-color: #CDB9A5"></span>
+</div>
+<div class="crow">
+<h2 class="ctitle" style="color: #2B1E16">Mains</h2>
+<span class="cnote" style="color: #C0391B">three dishes, two under NDA</span>
+
 </div>
 </div>
-<a class="btn btn-ghost" href="FullMenu.dc.html" aria-label="See the full menu of work" style="margin-left: auto; font-size: 16px; font-weight: 600; padding: 11px 22px; border: 1.5px solid #2B1E16; border-radius: 999px; text-decoration: none; white-space: nowrap">See the full menu →</a>
-</div>
-<div style="display: flex; flex-direction: column; gap: 32px">
+<div>
 <sc-for list="{{ mains }}" as="m" hint-placeholder-count="3">
-<article class="card" style="background: #FFFAF2; border: 1px solid #DCCDB6; border-radius: 20px; overflow: hidden; display: flex; flex-wrap: wrap">
-<div style="{{ m.coverStyle }}">
-<div class="cover-art" style="position: absolute; inset: 0">
+<article class="dish">
+<div class="dplate" style="{{ m.plateStyle }}">
 <sc-if value="{{ m.isEwm }}" hint-placeholder-val="{{ true }}">
-<svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#2B1E16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%"><g transform="translate(300 210) scale(.62) translate(-300 -210)" stroke-width="3.8"><ellipse cx="300" cy="222" rx="132" ry="130" fill="#2B1E16" opacity=".08" stroke="none"></ellipse><circle cx="300" cy="210" r="130" fill="#FFFAF2"></circle><circle cx="300" cy="210" r="100" stroke-width="1.5" opacity=".25"></circle><rect x="250" y="170" width="16" height="16" rx="4"></rect><path d="M282 178h68"></path><rect x="250" y="202" width="16" height="16" rx="4" fill="#C0391B" stroke="#C0391B"></rect><path d="M282 210h52"></path><rect x="250" y="234" width="16" height="16" rx="4"></rect><path d="M282 242h60"></path></g></svg>
+<svg viewBox="210 120 180 180" fill="none" stroke="#2B1E16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block; width: 100%; height: 100%"><g transform="translate(300 210) scale(.62) translate(-300 -210)" stroke-width="3.8"><ellipse cx="300" cy="222" rx="132" ry="130" fill="#2B1E16" opacity=".08" stroke="none"></ellipse><circle cx="300" cy="210" r="130" fill="#FFFAF2"></circle><circle cx="300" cy="210" r="100" stroke-width="1.5" opacity=".25"></circle><rect x="250" y="170" width="16" height="16" rx="4"></rect><path d="M282 178h68"></path><rect x="250" y="202" width="16" height="16" rx="4" fill="#C0391B" stroke="#C0391B"></rect><path d="M282 210h52"></path><rect x="250" y="234" width="16" height="16" rx="4"></rect><path d="M282 242h60"></path></g></svg>
 </sc-if>
 <sc-if value="{{ m.isMaas }}" hint-placeholder-val="{{ false }}">
-<svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#2B1E16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%"><g transform="translate(300 210) scale(.62) translate(-300 -210)" stroke-width="3.8"><ellipse cx="300" cy="222" rx="132" ry="130" fill="#2B1E16" opacity=".08" stroke="none"></ellipse><circle cx="300" cy="210" r="130" fill="#FFFAF2"></circle><circle cx="300" cy="210" r="100" stroke-width="1.5" opacity=".25"></circle><rect x="270" y="152" width="60" height="112" rx="12"></rect><path d="M292 166h16"></path><circle cx="300" cy="212" r="18" fill="#3E6B2F" stroke="#3E6B2F"></circle><path d="M292 212l6 6 11-11" stroke="#FFFAF2"></path></g></svg>
+<svg viewBox="210 120 180 180" fill="none" stroke="#2B1E16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block; width: 100%; height: 100%"><g transform="translate(300 210) scale(.62) translate(-300 -210)" stroke-width="3.8"><ellipse cx="300" cy="222" rx="132" ry="130" fill="#2B1E16" opacity=".08" stroke="none"></ellipse><circle cx="300" cy="210" r="130" fill="#FFFAF2"></circle><circle cx="300" cy="210" r="100" stroke-width="1.5" opacity=".25"></circle><rect x="270" y="152" width="60" height="112" rx="12"></rect><path d="M292 166h16"></path><circle cx="300" cy="212" r="18" fill="#3E6B2F" stroke="#3E6B2F"></circle><path d="M292 212l6 6 11-11" stroke="#FFFAF2"></path></g></svg>
 </sc-if>
 <sc-if value="{{ m.isZliq }}" hint-placeholder-val="{{ false }}">
-<svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#2B1E16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%"><g transform="translate(300 210) scale(.62) translate(-300 -210)" stroke-width="3.8"><ellipse cx="300" cy="222" rx="132" ry="130" fill="#2B1E16" opacity=".08" stroke="none"></ellipse><circle cx="300" cy="210" r="130" fill="#FFFAF2"></circle><circle cx="300" cy="210" r="100" stroke-width="1.5" opacity=".25"></circle><path d="M300 272c-30-34-46-58-46-80a46 46 0 0 1 92 0c0 22-16 46-46 80z"></path><circle cx="300" cy="192" r="16" fill="#7E45D8" stroke="#7E45D8"></circle></g></svg>
+<svg viewBox="210 120 180 180" fill="none" stroke="#2B1E16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block; width: 100%; height: 100%"><g transform="translate(300 210) scale(.62) translate(-300 -210)" stroke-width="3.8"><ellipse cx="300" cy="222" rx="132" ry="130" fill="#2B1E16" opacity=".08" stroke="none"></ellipse><circle cx="300" cy="210" r="130" fill="#FFFAF2"></circle><circle cx="300" cy="210" r="100" stroke-width="1.5" opacity=".25"></circle><path d="M300 272c-30-34-46-58-46-80a46 46 0 0 1 92 0c0 22-16 46-46 80z"></path><circle cx="300" cy="192" r="16" fill="#7E45D8" stroke="#7E45D8"></circle></g></svg>
 </sc-if>
 </div>
-<span style="position: absolute; left: 20px; top: 20px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #2B1E16; color: #FFFAF2; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .06em"><sc-if value="{{ m.locked }}" hint-placeholder-val="{{ true }}"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="#FFFAF2" stroke-width="1.6" aria-hidden="true"><rect x="1.5" y="6" width="9" height="7" rx="1.5"></rect><path d="M3.5 6V4a2.5 2.5 0 0 1 5 0v2"></path></svg></sc-if>{{ m.badge }}</span>
-<span style="position: absolute; right: 20px; bottom: 16px; font-family: 'Shrikhand', Georgia, serif; font-size: 22px; color: #2B1E16; opacity: .9">No. {{ m.num }}</span>
-</div>
-<div style="flex: 1 1 400px; min-width: 0; padding: 40px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 12px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px">
+<span style="font-family: 'Shrikhand', Georgia, serif; font-size: 18px; color: #C0391B">No. {{ m.num }}</span>
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .1em; color: #6B5242">{{ m.label }}</span>
-<h3 style="margin: 0; font-size: clamp(26px, 2.6vw, 34px); line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance">{{ m.title }}</h3>
-<p style="margin: 0; font-size: 17px; line-height: 26px; color: #6B5242; max-width: 30em">{{ m.desc }}</p>
+<span style="display: inline-flex; align-items: center; gap: 7px; padding: 3px 10px; border-radius: 999px; background: transparent; border: 1.2px solid #6B5242; color: #6B5242; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .06em"><sc-if value="{{ m.locked }}" hint-placeholder-val="{{ true }}"><svg width="10" height="12" viewBox="0 0 12 14" fill="none" stroke="#6B5242" stroke-width="1.6" aria-hidden="true"><rect x="1.5" y="6" width="9" height="7" rx="1.5"></rect><path d="M3.5 6V4a2.5 2.5 0 0 1 5 0v2"></path></svg></sc-if>{{ m.badge }}</span>
+</div>
+<h3 style="margin: 0; font-size: clamp(26px, 2.8vw, 36px); line-height: 1.1; font-weight: 700; letter-spacing: -0.02em">{{ m.title }}</h3>
+<p style="margin: 0; font-size: 17px; line-height: 26px; color: #6B5242; max-width: 32em">{{ m.desc }}</p>
 <sc-if value="{{ m.hasCase }}" hint-placeholder-val="{{ true }}">
-<a class="btn btn-solid" href="{{ m.href }}" style="margin-top: 8px; align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; padding: 12px 22px; background: #2B1E16; color: #FFFAF2; border-radius: 999px; text-decoration: none">Read the recipe →</a>
+<a class="btn btn-solid" href="{{ m.href }}" style="margin-top: 4px; align-self: flex-start; font-size: 15px; font-weight: 600; padding: 11px 20px; background: #2B1E16; color: #FFFAF2; border-radius: 999px; text-decoration: none">Read the recipe →</a>
 </sc-if>
 <sc-if value="{{ m.noCase }}" hint-placeholder-val="{{ false }}">
-<div style="margin-top: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px"><button type="button" class="btn btn-solid" onClick="{{ m.req }}" style="font: inherit; border: 0; cursor: pointer; align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; padding: 12px 22px; background: #2B1E16; color: #FFFAF2; border-radius: 999px; text-decoration: none"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="1.5" y="6" width="9" height="7" rx="1.5"></rect><path d="M3.5 6V4a2.5 2.5 0 0 1 5 0v2"></path></svg>Request access</button><sc-if value="{{ m.pw }}" hint-placeholder-val="{{ false }}"><a href="{{ m.pwHref }}" style="font-size: 15px; font-weight: 600; color: #6B5242">Have the password? Open it →</a></sc-if></div>
+<div style="margin-top: 4px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px"><button type="button" class="btn btn-solid" onClick="{{ m.req }}" style="font: inherit; border: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 600; padding: 11px 20px; background: #2B1E16; color: #FFFAF2; border-radius: 999px"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="1.5" y="6" width="9" height="7" rx="1.5"></rect><path d="M3.5 6V4a2.5 2.5 0 0 1 5 0v2"></path></svg>Request access</button><a href="{{ m.pwHref }}" style="font-size: 15px; font-weight: 600; color: #6B5242">Have the password? Open it →</a></div>
 </sc-if>
 </div>
 </article>
 </sc-for>
 </div>
+<a class="fullmenu" href="FullMenu.dc.html" aria-label="Open the full menu: all four dishes">
+<div class="fmleft">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .16em; color: #6B5242">À LA CARTE</span>
+<span style="font-family: 'Shrikhand', Georgia, serif; font-size: clamp(32px, 3.6vw, 46px); line-height: 1.1; color: #C0391B">The full menu</span>
+<span style="font-family: 'Kalam', cursive; font-size: 19px; line-height: 1.3; color: #6B5242">four dishes, one table, nothing hidden<br>except what's under NDA</span>
+<span class="fmbtn">Open the full menu <svg width="16" height="16" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11h14M12 5l6 6-6 6"></path></svg></span>
+</div>
+<ol class="fmlist" aria-hidden="true">
+<li class="fmline"><span class="fmnum">01</span><span class="fmname">EWM modernization</span><span class="fmlead"></span><span class="fmtag">NDA</span></li>
+<li class="fmline"><span class="fmnum">02</span><span class="fmname">Zliq</span><span class="fmlead"></span><span class="fmtag">prototype</span></li>
+<li class="fmline"><span class="fmnum">03</span><span class="fmname">MaaS360 onboarding</span><span class="fmlead"></span><span class="fmtag">NDA</span></li>
+<li class="fmline"><span class="fmnum">04</span><span class="fmname">AIOps BYOC</span><span class="fmlead"></span><span class="fmtag">research</span></li>
+</ol>
+</a>
 </section>
 
-<section id="cook" ref="{{ setCook }}" style="max-width: 1040px; margin: 0 auto; padding: 96px clamp(24px, 7vw, 120px) 128px; display: flex; flex-direction: column; gap: 56px">
-<div style="display: flex; flex-direction: column; gap: 10px">
-<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #6B5242">COURSE 02</span>
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px">
-<h2 style="margin: 0; font-size: clamp(48px, 6.4vw, 88px); line-height: 0.95; font-weight: 700; letter-spacing: -0.035em">How I cook</h2>
-<span style="font-family: 'Kalam', cursive; font-size: 24px; color: #C0391B">the questions on the stove while I work</span>
+<section id="cook" class="csec">
+<div class="chead">
+<div class="ckick">
+<span class="cbadge" aria-hidden="true" style="background: #2B1E16; color: #FFFAF2;">02</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .12em; color: #6B5242; white-space: nowrap">COURSE 02 · THE PROCESS</span>
+<span class="clead" aria-hidden="true" style="border-bottom-color: #CDB9A5"></span>
+</div>
+<div class="crow">
+<h2 class="ctitle" style="color: #2B1E16">How I cook</h2>
+<span class="cnote" style="color: #C0391B">the questions on the stove while I work</span>
+
 </div>
 </div>
-<div class="cookgap" style="display: flex; gap: 48px; align-items: flex-start">
-<div class="pathcol" style="flex: 0 0 520px; height: 1120px; position: relative">
-<svg width="520" height="1120" viewBox="0 0 520 1120" fill="none" aria-hidden="true" style="position: absolute; inset: 0">
-<path d="M70 60 C70 180 250 180 250 300 C250 420 70 420 70 540 C70 660 250 660 250 780 C250 900 70 900 70 1020" stroke="#E8D9C2" stroke-width="16" stroke-linecap="round"></path>
-<path d="M70 60 C70 180 250 180 250 300 C250 420 70 420 70 540 C70 660 250 660 250 780 C250 900 70 900 70 1020" stroke="#F6EFE3" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 10"></path>
-<path class="trail" d="M70 60 C70 180 250 180 250 300 C250 420 70 420 70 540 C70 660 250 660 250 780 C250 900 70 900 70 1020" pathLength="100" stroke="#C0391B" stroke-width="16" stroke-linecap="round" stroke-dasharray="100" style="{{ trailStyle }}"></path>
-</svg>
+<div class="recipe">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; padding: 18px 24px 16px 84px; border-bottom: 1.5px solid #2B1E16" class="rhead">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .14em; color: #6B5242">RECIPE CARD · 5 STEPS</span>
+<span style="font-family: 'Kalam', cursive; font-size: 17px; color: #957F6E">tap a step to read it</span>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0">
 <sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
-<span style="{{ st.pinStyle }}"></span>
-<span class="qlabel" style="{{ st.qStyle }}">{{ st.q }}</span>
-</sc-for>
-<span class="pan" style="{{ panStyle }}">
-<svg width="32" height="32" viewBox="0 0 30 30" fill="none" stroke="#2B1E16" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 13h18v4a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6z"></path><path d="M21 15h6"></path><path d="M9 4c-1.5 2 1.5 3 0 5M15 4c-1.5 2 1.5 3 0 5" stroke="#C0391B"></path></svg>
-</span>
-</div>
-<ol style="flex: 1 1 360px; min-width: 0; list-style: none; margin: 0; padding: 30px 0 0; display: flex; flex-direction: column">
-<sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
-<li class="stepli" style="min-height: 240px; display: flex; flex-direction: column; gap: 12px">
-<button type="button" onClick="{{ st.pick }}" class="step" style="{{ st.btnStyle }}">
-<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em">STEP {{ st.n }}</span>
-<span style="display: block; font-size: clamp(26px, 2.6vw, 34px); line-height: 1.15; font-weight: 700; letter-spacing: -0.02em">{{ st.title }}</span>
+<li class="rstep">
+<button type="button" class="rbtn" onClick="{{ st.pick }}" aria-expanded="{{ st.expanded }}">
+<span style="{{ st.numStyle }}">{{ st.n }}</span>
+<span class="rtitle" style="font-size: clamp(20px, 2.2vw, 26px); line-height: 1.2; font-weight: 700; letter-spacing: -0.015em">{{ st.title }}</span>
+<span class="rq" style="font-family: 'Kalam', cursive; font-size: 18px; color: #C0391B; text-align: right; max-width: 260px">{{ st.q }}</span>
 </button>
-<sc-if value="{{ st.on }}" hint-placeholder-val="{{ true }}">
-<p style="margin: 0; max-width: 32em; font-size: 18px; line-height: 29px; color: #6B5242; white-space: pre-line">{{ st.desc }}</p>
-<p style="margin: 0; font-family: 'Kalam', cursive; font-size: 21px; color: #C0391B">{{ st.q }}</p>
+<sc-if value="{{ st.on }}" hint-placeholder-val="{{ false }}">
+<div class="rbody" style="padding: 0 32px 26px 84px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; max-width: 36em; font-size: 18px; line-height: 29px; color: #6B5242; white-space: pre-line">{{ st.desc }}</p>
+<p style="margin: 0; font-family: 'Kalam', cursive; font-size: 20px; color: #C0391B">{{ st.q }}</p>
+</div>
 </sc-if>
 </li>
 </sc-for>
@@ -251,15 +404,20 @@ button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3p
 </div>
 </section>
 
-<section id="tools" style="max-width: 1040px; margin: 0 auto; padding: 32px clamp(24px, 7vw, 120px) 128px; display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; flex-direction: column; gap: 10px">
-<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #6B5242">COURSE 03</span>
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px">
-<h2 style="margin: 0; font-size: clamp(48px, 6.4vw, 88px); line-height: 0.95; font-weight: 700; letter-spacing: -0.035em">The utensils</h2>
-<span style="font-family: 'Kalam', cursive; font-size: 24px; color: #C0391B">what hangs on my rail</span>
+<section id="tools" class="csec" style="padding-bottom: 120px">
+<div class="chead">
+<div class="ckick">
+<span class="cbadge" aria-hidden="true" style="background: #2B1E16; color: #FFFAF2;">03</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .12em; color: #6B5242; white-space: nowrap">COURSE 03 · THE TOOLS</span>
+<span class="clead" aria-hidden="true" style="border-bottom-color: #CDB9A5"></span>
 </div>
-<p style="margin: 0; max-width: 34em; font-size: 18px; line-height: 28px; color: #6B5242">The tools I reach for, from the first sticky note to the last pixel.</p>
+<div class="crow">
+<h2 class="ctitle" style="color: #2B1E16">The utensils</h2>
+<span class="cnote" style="color: #C0391B">what hangs on my rail</span>
+
 </div>
+</div>
+<p style="margin: -16px 0 32px; max-width: 34em; font-size: 18px; line-height: 28px; color: #6B5242">The tools I reach for, from the first sticky note to the last pixel.</p>
 <div style="position: relative; padding-top: 18px">
 <span aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 12px; border-radius: 999px; background: #8A6A52; box-shadow: inset 0 -3px 0 rgba(43,30,22,.25)"></span>
 <ul class="toolgrid" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 28px 18px">
@@ -279,42 +437,58 @@ button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3p
 </div>
 </section>
 
-<section class="zoomsec" ref="{{ setZoom }}" aria-label="Welcome to my other kitchen" style="position: relative; height: 1700px">
-<div style="position: sticky; top: 0; height: 100vh; max-height: 900px; overflow: hidden">
-<div aria-hidden="true" style="{{ panStyle2 }}">
-<svg width="400" height="340" viewBox="0 -80 400 340" fill="none" style="display: block; overflow: visible">
-<g style="{{ steamStyle }}" stroke="#C0391B" stroke-width="5" stroke-linecap="round">
-<path d="M95 -10 C80 -30 110 -45 95 -70"></path><path d="M130 -2 C115 -26 145 -44 130 -74"></path><path d="M165 -10 C150 -30 180 -45 165 -70"></path>
-</g>
-<rect x="238" y="116" width="158" height="28" rx="14" fill="#3D2C22" stroke="#2B1E16" stroke-width="3"></rect>
-<circle cx="372" cy="130" r="6" fill="#F6EFE3"></circle>
-<circle cx="130" cy="130" r="126" fill="#3D2C22"></circle>
-<circle cx="130" cy="130" r="112" fill="#2B1E16"></circle>
-<path d="M58 70 A96 96 0 0 1 120 36" stroke="#5A463A" stroke-width="6" stroke-linecap="round"></path>
-<g style="{{ sizzleStyle }}" fill="#EDA92A"><circle cx="100" cy="150" r="4"></circle><circle cx="150" cy="110" r="3"></circle><circle cx="165" cy="165" r="5"></circle><circle cx="118" cy="98" r="2.5"></circle><circle cx="86" cy="118" r="3"></circle></g>
-</svg>
-</div>
-<div style="{{ zoomTextStyle }}">
-<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #6B5242">INTERMISSION</span>
-<p style="margin: 0; font-size: clamp(36px, 5vw, 68px); line-height: 1; font-weight: 700; letter-spacing: -0.035em; text-wrap: balance">Welcome to my other <span style="font-family: 'Shrikhand', Georgia, serif; font-weight: 400; letter-spacing: 0; color: #C0391B">kitchen</span></p>
-<p style="margin: 0; font-family: 'Kalam', cursive; font-size: 22px; color: #6B5242">off the screen, still stirring</p>
-<a href="#kitchen" style="margin-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #6B5242; text-decoration: none">SCROLL TO HOP IN THE PAN ↓</a>
-</div>
-</div>
-</section>
+</div></div>
 
-<div ref="{{ setKitchen }}" class="inpan" style="background: #2B1E16; color: #F6EFE3">
-<div style="{{ kitchenPopStyle }}">
-<section id="kitchen" style="max-width: 1040px; margin: 0 auto; padding: 72px clamp(24px, 7vw, 120px) 128px; display: flex; flex-direction: column; gap: 64px">
-<div style="display: flex; flex-direction: column; gap: 10px">
-<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #CDB9A5">COURSE 04</span>
-<h2 style="margin: 0; font-size: clamp(40px, 5vw, 68px); line-height: 1; font-weight: 700; letter-spacing: -0.03em; text-wrap: balance">Beyond pixels and prototypes, I…</h2>
+<div ref="{ setDark }" class="inpan">
+<div class="wrap">
+<div class="lamp" style="padding: 112px 0 8px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center">
+<svg width="120" height="96" viewBox="0 0 120 96" fill="none" stroke-linecap="round" aria-hidden="true"><g stroke="#C0391B" stroke-width="4"><path class="s" d="M40 30c-5 7 5 11 0 19"></path><path class="s s2" d="M58 24c-5 7 5 11 0 19"></path><path class="s s3" d="M76 30c-5 7 5 11 0 19"></path></g><g stroke="#EDA92A" stroke-width="4.5" stroke-linejoin="round"><path d="M14 56h76v10a20 20 0 0 1-20 20H34a20 20 0 0 1-20-20z"></path><path d="M90 60h22"></path></g></svg>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .14em; color: #CDB9A5">INTERMISSION · THE LIGHTS DIM</span>
+<p style="margin: 0; font-size: clamp(32px, 4.4vw, 56px); line-height: 1.02; font-weight: 700; letter-spacing: -0.03em; text-wrap: balance">Welcome to my other <span style="font-family: 'Shrikhand', Georgia, serif; font-weight: 400; letter-spacing: 0; color: #EDA92A">kitchen</span></p>
+<p style="margin: 0; font-family: 'Kalam', cursive; font-size: 21px; color: #CDB9A5">off the screen, still stirring</p>
 </div>
-<ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px 40px; font-size: 19px; line-height: 28px; color: #E8DCC8">
-<li style="border-top: 1px solid #5A463A; padding-top: 16px"><strong style="color: #EDA92A; font-weight: 700">cook</strong>, mostly in one very loyal pan</li>
-<li style="border-top: 1px solid #5A463A; padding-top: 16px"><strong style="color: #EDA92A; font-weight: 700">ride</strong> a Triumph Speed 400</li>
-<li style="border-top: 1px solid #5A463A; padding-top: 16px"><strong style="color: #EDA92A; font-weight: 700">build odd things</strong> after asking AI odd questions</li>
-</ul>
+
+<section id="kitchen" class="csec kitchen">
+<div class="chead">
+<div class="ckick">
+<span class="cbadge" aria-hidden="true" style="background: #EDA92A; color: #2B1E16;">04</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .12em; color: #CDB9A5; white-space: nowrap">COURSE 04 · OFF THE CLOCK</span>
+<span class="clead" aria-hidden="true" style="border-bottom-color: #5A463A"></span>
+</div>
+<div class="crow">
+<h2 class="ctitle" style="color: #F6EFE3">The other kitchen</h2>
+<span class="cnote" style="color: #EDA92A">the other half of me, after the laptop closes</span>
+
+</div>
+</div>
+<p class="kintro">Beyond pixels and prototypes, I…</p>
+<div class="acts">
+<div class="act" ref="{{ setAct0 }}" style="{{ actStyle0 }}">
+<div class="actwords">
+<span class="actno">01</span>
+<span class="actword">cook<span style="color: #EDA92A">.</span></span>
+<span class="actcap">mostly in one very loyal pan</span>
+</div>
+<figure class="actpic" style="transform: rotate(-4deg)"><img src="/assets/1f26511fc891ab90cb9dab3d5800415e.jpg" alt="Paneer and capsicum curry topped with coriander"><figcaption>paneer-curry.jpg</figcaption></figure>
+</div>
+<div class="act rev" ref="{{ setAct1 }}" style="{{ actStyle1 }}">
+<div class="actwords">
+<span class="actno">02</span>
+<span class="actword">ride<span style="color: #EDA92A">.</span></span>
+<span class="actcap">a Triumph Speed 400</span>
+</div>
+<figure class="actpic" style="transform: rotate(3deg)"><img src="/assets/a394edd7e64ee17ad53e3a3bae008a96.jpg" alt="Aayush with his Triumph Speed 400"><figcaption>weekend-mode.jpg</figcaption></figure>
+</div>
+<div class="act" ref="{{ setAct2 }}" style="{{ actStyle2 }}">
+<div class="actwords">
+<span class="actno">03</span>
+<span class="actword">build odd things<span style="color: #EDA92A">.</span></span>
+<span class="actcap">after asking AI odd questions</span>
+</div>
+<figure class="actpic" style="transform: rotate(-2.5deg)"><img src="/assets/d1065a71e64a120d0a9a264863c9918b.gif" alt="Aayush playing a hand-tracking instrument in front of his webcam"><figcaption>hand-tracking.gif</figcaption></figure>
+</div>
+</div>
+<div class="kbleed">
 <div class="polas" aria-label="Photos from my kitchen and weekends" role="region" style="overflow: hidden; margin: 0 calc(-1 * clamp(24px, 7vw, 120px)); padding: 20px 0 36px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent)">
 <div class="polatrack" style="display: flex; align-items: flex-start; width: max-content">
 <figure class="pola" style="margin: 0; width: 248px; flex-shrink: 0; background: #FFFCF5; padding: 12px 12px 16px; transform: rotate(-3deg); box-shadow: 0 18px 36px rgba(0,0,0,.35)"><img src="/assets/69d8ce40f1343e14c4ee367a826654a9.jpg" alt="Skewers on a charcoal grill" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="margin-top: 10px; font-family: 'Kalam', cursive; font-size: 18px; color: #3E6B2F">grill-skewers.jpg</figcaption></figure>
@@ -331,12 +505,13 @@ button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3p
 <figure class="pola" aria-hidden="true" style="margin: 0; width: 248px; flex-shrink: 0; background: #FFFCF5; padding: 12px 12px 16px; transform: rotate(1.5deg); box-shadow: 0 18px 36px rgba(0,0,0,.35)"><img src="/assets/8a792aa389303fa791573ab28ed0dbfd.jpg" alt="Mango cheesecake tart topped with diced mango" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="margin-top: 10px; font-family: 'Kalam', cursive; font-size: 18px; color: #3E6B2F">mango-tart.jpg</figcaption></figure>
 </div>
 </div>
+</div>
 <div style="display: flex; flex-direction: column; gap: 24px; padding-top: 24px">
 <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px">
 <h3 style="margin: 0; font-size: 32px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em">Side dishes</h3>
 <span style="font-family: 'Kalam', cursive; font-size: 21px; color: #EDA92A">odd things I built, and rooms I helped fill</span>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px">
 <sc-for list="{{ odd }}" as="o" hint-placeholder-count="5">
 <div class="side" style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
 <sc-if value="{{ o.img }}" hint-placeholder-val="{{ false }}">
@@ -354,12 +529,18 @@ button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3p
 </section>
 </div>
 
-<section id="about" style="max-width: 1040px; margin: 0 auto; padding: 128px clamp(24px, 7vw, 120px) 112px; display: flex; flex-direction: column; gap: 56px">
-<div style="display: flex; flex-direction: column; gap: 10px">
-<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #CDB9A5">COURSE 05</span>
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px">
-<h2 style="margin: 0; font-size: clamp(44px, 5.6vw, 76px); line-height: 0.95; font-weight: 700; letter-spacing: -0.035em">How I got here</h2>
-<span style="font-family: 'Kalam', cursive; font-size: 24px; color: #EDA92A">slow-cooked</span>
+<div class="wrap"><div class="col">
+<section id="about" class="csec" style="padding-bottom: 96px">
+<div class="chead">
+<div class="ckick">
+<span class="cbadge" aria-hidden="true" style="background: #EDA92A; color: #2B1E16;">05</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .12em; color: #CDB9A5; white-space: nowrap">COURSE 05 · THE STORY</span>
+<span class="clead" aria-hidden="true" style="border-bottom-color: #5A463A"></span>
+</div>
+<div class="crow">
+<h2 class="ctitle" style="color: #F6EFE3">How I got here</h2>
+<span class="cnote" style="color: #EDA92A">slow-cooked</span>
+
 </div>
 </div>
 <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; border-top: 2px solid #5A463A">
@@ -369,7 +550,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3p
 </ol>
 </section>
 
-<section id="contact" style="max-width: 1040px; margin: 0 auto; padding: 32px clamp(24px, 7vw, 120px) 96px">
+<section id="contact" style="padding: 24px 0 88px; scroll-margin-top: 88px">
 <div class="billcard" style="background: #FFFAF2; border: 1px solid #DCCDB6; border-radius: 28px; padding: clamp(32px, 5vw, 72px); display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between; align-items: flex-end">
 <div style="flex: 2 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; color: #6B5242">THE BILL</span>
@@ -386,7 +567,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3p
 </div>
 </div>
 </section>
-<footer style="max-width: 1040px; margin: 0 auto; padding: 24px 0 48px; margin-inline: max(clamp(24px, 7vw, 120px), calc((100% - 1040px) / 2)); border-top: 1px solid #5A463A; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 14px; color: #CDB9A5"><span style="padding-left: 0px">© 2026 Aayush Kriti</span><span style="font-family: Kalam, cursive; font-size: 18px">made with own taste!</span></footer>
+<footer style="padding: 24px 0 48px; border-top: 1px solid #5A463A; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 14px; color: #CDB9A5"><span style="padding-left: 0px">© 2026 Aayush Kriti</span><span style="font-family: Kalam, cursive; font-size: 18px">made with own taste!</span></footer>
+</div></div>
 </div>
 
 <sc-if value="{{ reqOpen }}" hint-placeholder-val="{{ false }}">
@@ -394,50 +576,52 @@ button:focus-visible,a:focus-visible{outline:2px solid #2B1E16;outline-offset:3p
 </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":8400}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":7600}}'>
 class Component extends DCLogic {
 constructor(props) {
 super(props);
-this.state = { p: 0, z: 0, k: 1, copied: false, menuOpen: false, req: null };
-this.cookEl = null;
-this.zoomEl = null;
-this.kitEl = null;
+this.state = { active: 0, rail: false, seen: [false, false, false], open: 0, copied: false, menuOpen: false, req: null };
+this.menuEl = null;
+this.darkEl = null;
+this.actEls = [null, null, null];
 this.reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 this.onScroll = this.onScroll.bind(this);
 }
 componentDidMount() {
 window.addEventListener('scroll', this.onScroll, { passive: true });
 document.addEventListener('scroll', this.onScroll, { passive: true, capture: true });
+window.addEventListener('resize', this.onScroll, { passive: true });
+this.onScroll();
 }
 componentWillUnmount() {
 window.removeEventListener('scroll', this.onScroll);
 document.removeEventListener('scroll', this.onScroll, { capture: true });
+window.removeEventListener('resize', this.onScroll);
 }
 onScroll() {
 const vh = window.innerHeight || 800;
 const next = {};
-if (this.cookEl) {
-const r = this.cookEl.getBoundingClientRect();
-const raw = (vh * 0.55 - (r.top + 200)) / Math.max(1, r.height - 400);
-const p = Math.max(0, Math.min(1, raw));
-if (Math.abs(p - this.state.p) > 0.01) next.p = p;
+// the menu card appears once the menu on the cover has scrolled away
+if (this.menuEl) {
+const r = this.menuEl.getBoundingClientRect();
+const rail = r.bottom < 90;
+if (rail !== this.state.rail) next.rail = rail;
 }
-if (this.zoomEl && !this.reduce) {
-const r = this.zoomEl.getBoundingClientRect();
-const stick = Math.min(vh, 900);
-const z = Math.max(0, Math.min(1, -r.top / Math.max(1, r.height - stick)));
-if (Math.abs(z - this.state.z) > 0.005) next.z = z;
+const ids = ['work', 'cook', 'tools', 'kitchen', 'about'];
+let a = 0;
+for (let i = 0; i < ids.length; i++) {
+const el = document.getElementById(ids[i]);
+if (el && el.getBoundingClientRect().top < vh * 0.45) a = i;
 }
-if (this.kitEl && !this.reduce) {
-const r = this.kitEl.getBoundingClientRect();
-const k = Math.max(0, Math.min(1, (vh - r.top) / (vh * 0.6)));
-if (Math.abs(k - this.state.k) > 0.01) next.k = k;
-}
+const bill = document.getElementById('contact');
+if (bill && bill.getBoundingClientRect().top < vh * 0.5) a = 5;
+if (a !== this.state.active) next.active = a;
+const seen = this.actEls.map((el, i) => this.state.seen[i] || this.reduce || !el || el.getBoundingClientRect().top < vh * 0.85);
+if (seen.some((v, i) => v !== this.state.seen[i])) next.seen = seen;
 if (Object.keys(next).length) this.setState(next);
 }
 renderVals() {
 const s = this.state;
-const pins = [[70, 60], [250, 300], [70, 540], [250, 780], [70, 1020]];
 const data = [
 { n: '01', title: 'I read the whole recipe first', desc: 'A request usually hides a bigger need. I find the real ask before I open Figma, so we cook the right dish, not just the first one.', q: 'what are we actually cooking?' },
 { n: '02', title: 'I check the pantry', desc: 'The product and Carbon already solve more than people expect. I look at what exists before I invent anything new.', q: 'what do we already have?' },
@@ -445,42 +629,48 @@ const data = [
 { n: '04', title: 'I taste as I go', desc: 'Small checks along the way beat one big reveal at the end.', q: 'would a first-timer get this?' },
 { n: '05', title: 'I plate for the person eating', desc: 'The same work reads differently to an engineer, a PM and a customer.\nI shape it for whoever is reading.', q: "who's eating, and what do they need first?" }
 ];
-const reached = Math.min(4, Math.floor(s.p * 4 + 0.001));
+const cover = (bg) => 'background: ' + bg + ';';
 const steps = data.map((d, i) => {
-const on = i <= reached;
-const x = pins[i][0], y = pins[i][1];
+const on = s.open === i;
 return {
 ...d,
-on: on,
-pick: () => this.setState({ p: i / 4 }),
-btnStyle: 'all: unset; cursor: pointer; display: flex; flex-direction: column; gap: 8px; color: ' + (on ? '#2B1E16' : '#957F6E') + ';',
-pinStyle: 'position: absolute; left: ' + (x - 13) + 'px; top: ' + (y - 13) + 'px; width: 26px; height: 26px; border-radius: 999px; border: 2px solid #2B1E16; box-sizing: border-box; background: ' + (on ? '#EDA92A' : '#FFFAF2') + '; box-shadow: 0 0 0 5px #F6EFE3;',
-qStyle: 'position: absolute; left: ' + (x + 30) + 'px; top: ' + (y - 16) + 'px; max-width: 230px; font-family: Kalam, cursive; font-size: 20px; line-height: 25px; color: #C0391B; opacity: ' + (on ? 1 : 0) + ';'
+on,
+expanded: on ? 'true' : 'false',
+pick: () => this.setState({ open: on ? -1 : i }),
+numStyle: "width: 34px; height: 34px; margin-left: 15px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 13px; box-sizing: border-box; border: 1.5px solid #2B1E16; " + (on ? 'background: #C0391B; border-color: #C0391B; color: #FFFAF2;' : 'background: #FFFAF2; color: #2B1E16;')
 };
 });
-const pin = pins[reached];
-const cover = (bg) => 'flex: 1 1 440px; min-width: 0; min-height: 340px; position: relative; overflow: hidden; background: ' + bg + ';';
+const list = [['01', 'Mains', 'the work', '#work'], ['02', 'How I cook', 'the process', '#cook'], ['03', 'The utensils', 'the tools', '#tools'], ['04', 'The other kitchen', 'off the clock', '#kitchen'], ['05', 'How I got here', 'the story', '#about']];
+const act = Math.min(s.active, 4);
+const billed = s.active === 5;
+const courses = list.map((c, i) => {
+const cur = i === act && !billed;
+const done = i < act || billed;
+return {
+n: c[0], name: c[1], note: c[2], href: c[3],
+current: cur ? 'step' : 'false',
+dotStyle: "position: relative; z-index: 1; width: 28px; height: 28px; flex-shrink: 0; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; box-sizing: border-box; transition: background-color .25s ease-out, color .25s ease-out; " + (cur ? 'background: #C0391B; color: #FFFAF2; border: 1.5px solid #C0391B; box-shadow: 0 0 0 4px #F6D9CF;' : done ? 'background: #2B1E16; color: #FFFAF2; border: 1.5px solid #2B1E16;' : 'background: #FFFAF2; color: #6B5242; border: 1.5px solid #CDB9A5;'),
+nameStyle: cur ? 'color: #C0391B;' : done ? 'color: #2B1E16;' : 'color: #6B5242; font-weight: 500;',
+segStyle: 'display: block; height: 4px; border-radius: 999px; background: ' + (cur ? '#C0391B' : done ? '#2B1E16' : '#DCCDB6') + ';'
+};
+});
+const railFillH = billed ? 100 : act * 25;
 return {
 steps,
-setZoom: (el) => { this.zoomEl = el; },
-setKitchen: (el) => { this.kitEl = el; },
-panStyle2: (() => {
-const vw = window.innerWidth || 1280, vh = Math.min(window.innerHeight || 800, 900);
-const base = vw < 640 ? 0.62 : 0.85;
-const max = Math.hypot(vw, vh) / 2 / 112 * 1.08;
-const t = Math.max(0, (s.z - 0.15) / 0.85);
-const sc = base + t * t * (max - base);
-const rot = -14 + Math.min(1, s.z / 0.5) * 14;
-const lift = Math.sin(Math.min(1, s.z / 0.35) * Math.PI) * -18;
-return 'position: absolute; left: 50%; top: 60%; width: 400px; height: 340px; margin: -210px 0 0 -130px; transform-origin: 130px 210px; transform: translateY(' + lift.toFixed(1) + 'px) rotate(' + rot.toFixed(2) + 'deg) scale(' + sc.toFixed(3) + ');';
-})(),
-steamStyle: 'opacity: ' + Math.max(0, 1 - s.z * 3).toFixed(3) + ';',
-sizzleStyle: 'opacity: ' + Math.max(0, Math.min(1, (s.z - 0.1) * 4) * (1 - Math.max(0, Math.min(1, (s.z - 0.45) * 4)))).toFixed(3) + ';',
-zoomTextStyle: 'position: absolute; left: 0; right: 0; top: calc(6% + 64px); display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; padding: 0 24px; transform-origin: 50% 0; transform: translateY(' + (s.z * 260).toFixed(1) + 'px) scale(' + Math.max(0.2, 1 - s.z * 1.1).toFixed(3) + '); opacity: ' + Math.max(0, 1 - s.z * 2.2).toFixed(3) + ';',
-kitchenPopStyle: 'transform-origin: 50% 0; transform: translateY(' + ((1 - s.k) * 60).toFixed(1) + 'px) scale(' + (0.94 + s.k * 0.06).toFixed(3) + '); opacity: ' + (0.2 + s.k * 0.8).toFixed(3) + ';',
-setCook: (el) => { this.cookEl = el; },
-trailStyle: 'stroke-dashoffset: ' + (100 - s.p * 100) + ';',
-panStyle: 'position: absolute; left: ' + (pin[0] - 24) + 'px; top: ' + (pin[1] - 66) + 'px; width: 48px; height: 48px; border-radius: 999px; background: #FFFCF5; border: 1.5px solid #2B1E16; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 14px rgba(43,30,22,.12);',
+courses,
+activeNum: list[act][0],
+activeName: billed ? 'The bill' : list[act][1],
+setMenu: (el) => { this.menuEl = el; },
+setDark: (el) => { this.darkEl = el; },
+setAct0: (el) => { this.actEls[0] = el; },
+setAct1: (el) => { this.actEls[1] = el; },
+setAct2: (el) => { this.actEls[2] = el; },
+actStyle0: s.seen[0] ? 'opacity: 1; transform: none;' : 'opacity: 0; transform: translateY(48px);',
+actStyle1: s.seen[1] ? 'opacity: 1; transform: none;' : 'opacity: 0; transform: translateY(48px);',
+actStyle2: s.seen[2] ? 'opacity: 1; transform: none;' : 'opacity: 0; transform: translateY(48px);',
+railStyle: s.rail && s.active !== 3 ? 'opacity: 1; transform: none;' : 'opacity: 0; transform: translateX(-12px); pointer-events: none; visibility: hidden;',
+railFill: 'position: absolute; left: 19px; top: 18px; width: 2px; background: #2B1E16; transition: height .35s cubic-bezier(.2,0,0,1); height: calc((100% - 36px) * ' + (railFillH / 100) + ');',
+tickerStyle: s.rail ? 'border-top: 1px solid #E8DCC8;' : 'display: none;',
 tools: [{ name: 'Figma', logo: '/assets/8460ecb1ae075daed85d22485b806598.png', use: 'UI, prototypes and design systems', tag: 'DESIGN', icon: 'M20 4v24 M13 28h14v18a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5z', accent: 'M18 33v12 M22 33v12', tagStyle: "font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px; margin-top: 2px; border: 1px solid #CDB9A5; color: #6B5242;" },
 { name: 'Mural', logo: '/assets/4c1aa4a91fb7c7d418e80b9dc19516ee.png', use: 'Workshops and research synthesis', tag: 'WHITEBOARD', icon: 'M20 4v6 M20 50v6 M13 10h14v40h-14z', accent: 'M13 20h14 M13 40h14', tagStyle: "font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px; margin-top: 2px; border: 1px solid #CDB9A5; color: #6B5242;" },
 { name: 'IBM Bob', logo: '/assets/79a3981173158a6f94e1430570b80e0e.png', use: 'Building skills that save the team time', tag: 'AI', icon: 'M17 4l-6 50 M23 4l6 50 M17 4h6', accent: 'M11 46l3 0 M29 46l-3 0', tagStyle: "font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px; margin-top: 2px; background: #2B1E16; color: #FFFAF2;" },
@@ -495,7 +685,7 @@ mains: [
 { num: '01', isEwm: true, isMaas: false, isZliq: false, locked: true, reqName: 'EWM', pw: true, pwHref: 'EWMCase.dc.html', coverStyle: cover('#F2DFB8'), label: 'IBM · ENTERPRISE', title: 'EWM modernization', desc: 'Discovery and early design for a 25-year-old engineering work tracker.', badge: 'UNDER NDA', problem: 'A 25-year-old engineering tool that customers keep comparing with Jira.', found: '11 of 13 stakeholders raised planning without being asked.', role: 'UX Designer, one of three · Aug 2026 – now', hasCase: false, noCase: true, href: 'EWMCase.dc.html' },
 { num: '02', isEwm: false, isMaas: false, isZliq: true, locked: false, coverStyle: cover('#E4D6FA'), label: 'MOBILE APP', title: 'Zliq', desc: 'An activity-first social app with a women-only space.', badge: 'LIVE PROTOTYPE', problem: 'Apps for meeting strangers lead with faces, and start to feel like dating apps.', found: 'A selfie match proves you\'re real, not that you\'re a woman, so the women-only space had a hole.', role: 'Sole designer, end to end · Aug – Nov 2026', hasCase: true, noCase: false, href: 'ZliqCase.dc.html' },
 { num: '03', isEwm: false, isMaas: true, isZliq: false, locked: true, reqName: 'MaaS360', pw: true, pwHref: 'MaaSCase.dc.html', coverStyle: cover('#EFCFC3'), label: 'IBM · ENTERPRISE', title: 'MaaS360 onboarding', desc: 'Redesigning setup for IBM\'s device management platform.', badge: 'UNDER NDA', problem: '[as the people using it felt it]', found: '[one finding or metric]', role: '[what I owned] · [timeline]', hasCase: false, noCase: true, href: '#contact' }
-].map((m) => Object.assign({}, m, { req: () => this.setState({ req: m.reqName }), pw: !!m.pw })),
+].map((m) => Object.assign({}, m, { req: () => this.setState({ req: m.reqName }), pw: !!m.pw, plateStyle: m.coverStyle.replace(/.*background: /, 'background: ') })),
 odd: [
 { name: 'Hand-tracking instrument', file: 'built with Figma Make', img: '/assets/d1065a71e64a120d0a9a264863c9918b.gif', alt: 'Aayush playing a hand-tracking instrument in front of his webcam', imgStyle: 'display: block; width: 100%; height: 160px; object-fit: cover; object-position: center 40%; border-radius: 14px; background: #3D2C22;' },
 { name: 'Research summary skill', file: 'IBM Bob skill' },
